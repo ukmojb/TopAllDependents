@@ -109,3 +109,49 @@ topaddons.stevescarts2:priority_high=高
 topaddons.stevescarts2:priority_medium=中
 topaddons.stevescarts2:priority_low=低
 topaddons.stevescarts2:engine_powered=有能量
+
+top.bot.spark.dispersive=升级 : 弥散
+top.bot.spark.dominant=升级 : 聚集
+top.bot.spark.recessive=升级 : 扩散
+top.bot.spark.isolated=升级 : 隔绝
+
+top.aspects=象征:
+top.ash=灰烬:
+top.power=灰烬能量
+top.east.fluid=东面流体
+top.west.fluid=西面流体
+top.south.fluid=南面流体
+top.north.fluid=北面流体
+
+top.furnace_fuel=熔炼
+top.items=物品
+top.no_fuel=无燃料
+top.empty=空
+top.jukebox_record=播放中
+top.cauldron_fill_1=瓶子
+top.cauldron_fill_2=瓶子
+top.breeding_cooldown=繁殖冷却：
+top.tamed=已驯服
+top.not_tamed=未驯服
+top.sitting=坐着
+top.standing=站着
+top.tnt_fuse=引线：
+top.enchanting_power=附魔能力：
+top.chicken_egg=孵化时间：
+
+top.unit.ticks=tick
+
+top.dynamic_trees.soil_life=土壤寿命：
+top.dynamic_trees.species=物种：
+
+top.apotheosis.delay=延迟：
+top.apotheosis.spawn_count=生成数量：
+top.apotheosis.max_nearby=最大附近数量：
+top.apotheosis.player_range=玩家范围：
+top.apotheosis.spawn_range=生成范围：
+top.apotheosis.ignores_players=忽略玩家
+top.apotheosis.ignores_conditions=忽略生成条件
+top.apotheosis.ignores_cap=忽略生成上限
+top.apotheosis.requires_redstone=需要红石
+top.projecte.emc=EMC：
+top.projecte.contained_emc=已包含EMC：
