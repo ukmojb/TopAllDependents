@@ -1,0 +1,292 @@
+import org.jetbrains.gradle.ext.Gradle
+
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'maven-publish'
+    id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1.7'
+    id 'eclipse'
+    id 'com.gtnewhorizons.retrofuturagradle' version '1.3.27'
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
+}
+
+version = project.mod_version
+group = project.maven_group
+archivesBaseName = project.mod_name
+
+// Set the toolchain version to decouple the Java we run Gradle with from the Java used to implementation rfg.deobf(and run the mod
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+        // Azul covers the most platforms for Java 8 toolchains, crucially including MacOS arm64
+        vendor.set(org.gradle.jvm.toolchain.JvmVendorSpec.AZUL)
+    }
+
+    // Generate sources and javadocs jars when building and publishing
+    withSourcesJar()
+
+
+    // withJavadocJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+configurations {
+    embed
+    implementation.extendsFrom(embed)
+}
+
+minecraft {
+    mcVersion = '1.12.2'
+
+    // MCP Mappings
+    mcpMappingChannel = 'stable'
+    mcpMappingVersion = '39'
+    
+    // Set username here, the UUID will be looked up automatically
+    username = 'wdcftgg'
+    
+    // Add any additional tweaker classes here
+    // extraTweakClasses.add('org.spongepowered.asm.launch.MixinTweaker')
+    
+    // Add various JVM arguments here for runtime
+    def args = ["-ea:${project.group}"]
+    if (project.use_coremod.toBoolean()) {
+        args << '-Dfml.coreMods.load=' + coremod_plugin_class_name
+    }
+    if (project.use_mixins.toBoolean()) {
+        args << '-Dmixin.hotSwap=true'
+        args << '-Dmixin.checks.interfaces=true'
+        args << '-Dmixin.debug.export=true'
+    }
+    extraRunJvmArguments.addAll(args)
+
+    // Include and use dependencies' Access Transformer files
+    useDependencyAccessTransformers = true
+    
+    // Add any properties you want to swap out for a dynamic value at build time here
+    // Any properties here will be added to a class at build time, the name can be configured below
+    // Example:
+    // injectedTags.put('VERSION', project.version)
+    // injectedTags.put('MOD_ID', project.mod_id)
+}
+
+// Generate a group.mod_id.Tags class
+tasks.injectTags.configure {
+    // Change Tags class' name here:
+    outputClassName.set("${project.group}.${project.mod_id}.Tags")
+}
+
+repositories {
+    maven {
+        name 'CleanroomMC Maven'
+        url 'https://maven.cleanroommc.com'
+    }
+    maven {
+        name 'SpongePowered Maven'
+        url 'https://repo.spongepowered.org/maven'
+    }
+    maven {
+        name 'CurseMaven'
+        url 'https://cursemaven.com'
+        content {
+            includeGroup 'curse.maven'
+        }
+    }
+    maven {
+        url = 'https://maven.blamejared.com'
+        name = 'BlameJared Maven'
+    }
+    maven {
+        name = "cofh"
+        url = "https://maven.covers1624.net"
+    }
+    mavenLocal() // Must be last for caching to work
+}
+
+dependencies {
+    if (project.use_assetmover.toBoolean()) {
+        implementation 'com.cleanroommc:assetmover:2.5'
+    }
+    if (project.use_mixins.toBoolean()) {
+        implementation 'zone.rong:mixinbooter:7.1'
+    }
+
+    // Example of deobfuscating a dependency
+    implementation files('./libs/TheOneProbe-CE-1.12-1.3.0.jar')
+    compileOnly files('./libs/TheOneProbe-CE-1.12-1.3.0-sources.jar')
+
+//    implementation files('CraftTweaker2-MC1120-Mod-JEI-1.12-4.1.20.670-deobf.jar')
+    implementation rfg.deobf('curse.maven:embers-rekindled-300777:3695248')
+    implementation rfg.deobf('curse.maven:botania-225643:3330934')
+    implementation rfg.deobf('curse.maven:extrabotany-299086:3112313')
+    implementation rfg.deobf('curse.maven:botanic_additions-310637:2939405')
+    implementation rfg.deobf('curse.maven:botaniverse-944656:4945200')
+    implementation rfg.deobf("curse.maven:thaumcraft-223628:2629023")
+    implementation rfg.deobf("curse.maven:AE2UnofficialExtendedLife-570458:4961400")
+    implementation rfg.deobf("curse.maven:ProjectE-226410:2702991")
+
+    implementation rfg.deobf("curse.maven:industrialcraft2-242638:3838713")
+    implementation rfg.deobf("curse.maven:OpenComputers-223008:4630537")
+    implementation rfg.deobf("curse.maven:MooFluids-74254:2643469")
+    implementation rfg.deobf("curse.maven:roost-277711:2702080")
+    implementation rfg.deobf("curse.maven:lycanitesmobs-224770:4486512")
+    implementation rfg.deobf("curse.maven:rustic-256141:3107974")
+    implementation rfg.deobf("curse.maven:UnlimitedChiselWorks-278493:3319307")
+    implementation rfg.deobf("curse.maven:forestry-59751:2556566")
+    implementation rfg.deobf("curse.maven:BloodMagic-224791:2822288")
+    implementation rfg.deobf('curse.maven:ArchitectureCraft-277631:4344128')
+
+    compileOnly "curse.maven:Buildcraft-61811:3204475"
+
+    implementation rfg.deobf("curse.maven:RebornCore-237903:3330308")
+
+    implementation rfg.deobf("curse.maven:GuideAPI-228832:2645992")
+
+    implementation rfg.deobf("curse.maven:Cucumber-272335:2645867")
+    implementation rfg.deobf("curse.maven:MysticalAgriculture-246640:2704562")
+
+    implementation rfg.deobf("curse.maven:CTM-267602:2915363")
+    implementation rfg.deobf("curse.maven:Chisel-235279:2915375")
+
+    implementation rfg.deobf("curse.maven:Chameleon-230497:2450900")
+    implementation rfg.deobf("curse.maven:StorageDrawers-223852:4655859")
+
+    implementation rfg.deobf("curse.maven:bdlib-70496:4675629")
+    implementation rfg.deobf("curse.maven:advanced_generators-223622:2516219")
+
+    implementation rfg.deobf("curse.maven:CodeChickenLib-242818:2779848")
+    implementation rfg.deobf("curse.maven:CoFHWorld-271384:2920434")
+    implementation rfg.deobf("curse.maven:ThermalFoundation-222880:2926428")
+
+    implementation rfg.deobf("curse.maven:ThermalExpansion-69163:2926431")
+    implementation rfg.deobf("curse.maven:ThermalDynamics-227443:2920505")
+    implementation rfg.deobf("curse.maven:CoFHCore-69162:2920433")
+
+
+    compileOnly("curse.maven:TConstruct-74072:2902483") { transitive = false }
+    compileOnly("curse.maven:StevesCarts-253462:2539158" ) { transitive = false }
+    compileOnly("curse.maven:ProjectRed-228702:2745545") { transitive = false }
+    compileOnly("curse.maven:binnie_mods-223525:2916129") { transitive = false }
+
+    //lib
+    implementation rfg.deobf('curse.maven:hammer-lib-247401:3611193')
+    implementation rfg.deobf("curse.maven:Mantle-74924:2713386")
+    implementation rfg.deobf('curse.maven:baubles-227083:2518667')
+    implementation rfg.deobf("curse.maven:bookshelf-228525:2836960")
+    implementation rfg.deobf("cofh:RedstoneFlux:1.12-2.1.0.+:universal")
+
+    //need forge-2860
+    compileOnly rfg.deobf("curse.maven:DynamicTrees-252818:3812473")
+
+    compileOnly "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.682"
+
+    if (project.use_mixins.toBoolean()) {
+        // Change your mixin refmap name here:
+        String mixin = modUtils.enableMixins('org.spongepowered:mixin:0.8.3', "mixins.${project.mod_id}.refmap.json")
+        api (mixin) {
+            transitive = false
+        }
+        annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
+        annotationProcessor 'com.google.guava:guava:24.1.1-jre'
+        annotationProcessor 'com.google.code.gson:gson:2.8.6'
+        annotationProcessor (mixin) {
+            transitive = false
+        }
+    }
+
+}
+
+// Adds Access Transformer files to tasks
+if (project.use_access_transformer.toBoolean()) {
+    for (File at : sourceSets.getByName("main").resources.files) {
+        if (at.name.toLowerCase().endsWith("_at.cfg")) {
+            tasks.deobfuscateMergedJarToSrg.accessTransformerFiles.from(at)
+            tasks.srgifyBinpatchedJar.accessTransformerFiles.from(at)
+        }
+    }
+}
+
+processResources {
+    // This will ensure that this task is redone when the versions change
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.minecraft.version
+    
+    // Replace various properties in mcmod.info and pack.mcmeta if applicable
+    filesMatching(['mcmod.info', 'pack.mcmeta']) { fcd ->
+        // Replace version and mcversion
+        fcd.expand (
+                'version': project.version,
+                'mcversion': project.minecraft.version
+        )
+    }
+    
+    if (project.use_access_transformer.toBoolean()) {
+        rename '(.+_at.cfg)', 'META-INF/$1' // Make sure Access Transformer files are in META-INF folder
+    }
+}
+
+jar {
+    manifest {
+        def attribute_map = [:]
+        if (project.use_coremod.toBoolean()) {
+            attribute_map['FMLCorePlugin'] = project.coremod_plugin_class_name
+            if (project.include_mod.toBoolean()) {
+                attribute_map['FMLCorePluginContainsFMLMod'] = true
+                attribute_map['ForceLoadAsMod'] = project.gradle.startParameter.taskNames[0] == "build"
+            }
+        }
+        if (project.use_access_transformer.toBoolean()) {
+            attribute_map['FMLAT'] = project.mod_id + '_at.cfg'
+        }
+        attributes(attribute_map)
+    }
+    // Add all embedded dependencies into the jar
+    from(provider{ configurations.embed.collect {it.isDirectory() ? it : zipTree(it)} })
+}
+
+idea {
+    module {
+        inheritOutputDirs = true
+    }
+    project {
+        settings {
+            runConfigurations {
+                "1. Run Client"(Gradle) {
+                    taskNames = ["runClient"]
+                }
+                "2. Run Server"(Gradle) {
+                    taskNames = ["runServer"]
+                }
+                "3. Run Obfuscated Client"(Gradle) {
+                    taskNames = ["runObfClient"]
+                }
+                "4. Run Obfuscated Server"(Gradle) {
+                    taskNames = ["runObfServer"]
+                }
+            }
+            compiler.javac {
+                afterEvaluate {
+                    javacAdditionalOptions = "-encoding utf8"
+                    moduleJavacAdditionalOptions = [
+                            (project.name + ".main"): tasks.compileJava.options.compilerArgs.collect { '"' + it + '"' }.join(' ')
+                    ]
+                }
+            }
+        }
+    }
+}
+
+tasks.named("processIdeaSettings").configure {
+    dependsOn("injectTags")
+}
+
+//sourceSets {
+//    main {
+//        java {
+//            exclude '**/addons/AddonNeoTech.java'
+//        }
+//    }
+//}
