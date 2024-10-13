@@ -1,0 +1,6 @@
+{
+  "recipes": {
+    "helmet_probing": "com.wdcftgg.topalldependents.mods.topaddons.helmets.recipes.RecipeHelmetProbing$Factory",
+    "helmet_unprobing": "com.wdcftgg.topalldependents.mods.topaddons.helmets.recipes.RecipeHelmetUnprobing$Factory"
+  }
+}
