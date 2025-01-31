@@ -1,8 +1,8 @@
 package com.wdcftgg.topalldependents.mods.BotanicAdditions;
 
+import com.wdcftgg.topalldependents.config.Config;
 import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.apiimpl.styles.ProgressStyle;
-import mcjty.theoneprobe.config.Config;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

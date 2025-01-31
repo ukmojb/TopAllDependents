@@ -1,19 +1,16 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
 import com.wdcftgg.topalldependents.TopAllDependents;
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
 import com.wdcftgg.topalldependents.mods.topaddons.elements.tconstruct.ElementSmelteryTank;
-
+import mcjty.theoneprobe.api.IProbeHitData;
+import mcjty.theoneprobe.api.IProbeInfo;
+import mcjty.theoneprobe.api.ProbeMode;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
-
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
 import slimeknights.tconstruct.library.smeltery.ISmelteryTankHandler;
 import slimeknights.tconstruct.library.smeltery.SmelteryTank;
 import slimeknights.tconstruct.smeltery.tileentity.TileSmeltery;
@@ -50,6 +47,7 @@ public class AddonTinkersConstruct extends AddonBlank {
     }
 
     private void addSmelteryTankElement(IProbeInfo probeInfo, List<FluidStack> fluids, int capacity, boolean inIngots, ProbeMode mode, EntityPlayer player) {
+//        System.out.println(mode);
         probeInfo.element(new ElementSmelteryTank(getElementId(player, "smeltery"), fluids, capacity, inIngots, mode == ProbeMode.EXTENDED));
     }
 }

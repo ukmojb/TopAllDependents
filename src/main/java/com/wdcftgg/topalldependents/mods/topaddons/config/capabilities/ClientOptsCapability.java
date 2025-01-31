@@ -5,10 +5,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 
+import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.annotation.Nonnull;
 
 public class ClientOptsCapability implements IClientOptsCapability {
 

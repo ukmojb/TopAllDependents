@@ -23,7 +23,6 @@ public class TopModConfigGui extends GuiConfig {
         List<IConfigElement> list = Lists.newArrayList();
 
         list.add(new ConfigElement(mcjty.theoneprobe.config.Config.mainConfig.getCategory(mcjty.theoneprobe.config.Config.CATEGORY_CLIENT)));
-        list.add(new ConfigElement(mcjty.theoneprobe.config.Config.mainConfig.getCategory(mcjty.theoneprobe.config.Config.CATEGORY_BOTANIA)));
         list.add(new ConfigElement(mcjty.theoneprobe.config.Config.mainConfig.getCategory(mcjty.theoneprobe.config.Config.CATEGORY_PROVIDERS)));
         list.add(new ConfigElement(mcjty.theoneprobe.config.Config.mainConfig.getCategory(Config.CATEGORY_THEONEPROBE)));
 

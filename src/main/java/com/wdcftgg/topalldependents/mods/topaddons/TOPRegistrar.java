@@ -1,13 +1,11 @@
 package com.wdcftgg.topalldependents.mods.topaddons;
 
+import com.google.common.base.Function;
 import com.wdcftgg.topalldependents.AddonManager;
+import mcjty.theoneprobe.api.ITheOneProbe;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 
-import com.google.common.base.Function;
-
 import javax.annotation.Nullable;
-
-import mcjty.theoneprobe.api.ITheOneProbe;
 
 public class TOPRegistrar {
 

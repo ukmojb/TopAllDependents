@@ -1,5 +1,6 @@
 package com.wdcftgg.topalldependents;
 
+import com.wdcftgg.topalldependents.config.Config;
 import com.wdcftgg.topalldependents.mods.BotanicAdditions.DreamingManaPool;
 import com.wdcftgg.topalldependents.mods.BotanicAdditions.ElvenAltar;
 import com.wdcftgg.topalldependents.mods.ExtraBotany.ManaBuffer;
@@ -15,7 +16,6 @@ import com.wdcftgg.topalldependents.mods.thaumcraft.Smelter;
 import com.wdcftgg.topalldependents.mods.thaumcraft.ThaumHighlightInfoProvider;
 import mcjty.theoneprobe.TheOneProbe;
 import mcjty.theoneprobe.apiimpl.TheOneProbeImp;
-import mcjty.theoneprobe.config.Config;
 import net.minecraftforge.fml.common.Loader;
 
 public class TOPHandler {

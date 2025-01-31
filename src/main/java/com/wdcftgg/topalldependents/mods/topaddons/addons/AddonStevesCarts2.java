@@ -1,6 +1,14 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
 import com.wdcftgg.topalldependents.TopAllDependents;
+import com.wdcftgg.topalldependents.mods.topaddons.Util;
+import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
+import com.wdcftgg.topalldependents.mods.topaddons.elements.stevescarts2.ElementCage;
+import com.wdcftgg.topalldependents.mods.topaddons.reference.Colors;
+import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleTOPAddonGrey;
+import mcjty.theoneprobe.Tools;
+import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.config.Config;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,29 +18,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidRegistry;
-
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
-import com.wdcftgg.topalldependents.mods.topaddons.Util;
-import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-import com.wdcftgg.topalldependents.mods.topaddons.elements.stevescarts2.ElementCage;
-import com.wdcftgg.topalldependents.mods.topaddons.reference.Colors;
-import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleTOPAddonGrey;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import mcjty.theoneprobe.Tools;
-import mcjty.theoneprobe.api.ElementAlignment;
-import mcjty.theoneprobe.api.IEntityDisplayOverride;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeHitEntityData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.api.TextStyleClass;
-import mcjty.theoneprobe.config.Config;
 import vswe.stevescarts.blocks.tileentities.TileEntityCartAssembler;
 import vswe.stevescarts.entitys.EntityMinecartModular;
 import vswe.stevescarts.modules.ModuleBase;
@@ -44,6 +29,12 @@ import vswe.stevescarts.modules.realtimers.ModuleCage;
 import vswe.stevescarts.modules.storages.ModuleStorage;
 import vswe.stevescarts.modules.storages.tanks.ModuleTank;
 import vswe.stevescarts.modules.workers.tools.ModuleTool;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @TOPAddon(dependency = "stevescarts")
 public class AddonStevesCarts2 extends AddonBlank {

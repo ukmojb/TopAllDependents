@@ -1,20 +1,14 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-
+import mcjty.theoneprobe.Tools;
+import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.config.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
-
-import mcjty.theoneprobe.Tools;
-import mcjty.theoneprobe.api.ElementAlignment;
-import mcjty.theoneprobe.api.IBlockDisplayOverride;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.config.Config;
 import rustic.common.blocks.crops.BlockAppleSeeds;
 import rustic.common.blocks.crops.BlockGrapeLeaves;
 import rustic.common.blocks.crops.BlockGrapeStem;

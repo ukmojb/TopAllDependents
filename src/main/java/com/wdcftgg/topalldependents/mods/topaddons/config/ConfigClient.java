@@ -4,7 +4,6 @@ import com.wdcftgg.topalldependents.mods.topaddons.network.MessageClientOptions;
 import com.wdcftgg.topalldependents.mods.topaddons.network.PacketHandler;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.ElementSync;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.Reference;
-
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.Configuration;

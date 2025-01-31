@@ -1,24 +1,18 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
+import cofh.core.block.TileRSControl;
+import cofh.thermalexpansion.block.dynamo.TileDynamoBase;
+import cofh.thermalexpansion.block.machine.TileMachineBase;
+import cofh.thermalexpansion.block.storage.TileCell;
+import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
+import com.wdcftgg.topalldependents.mods.topaddons.reference.Colors;
+import mcjty.theoneprobe.api.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-
-import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-import com.wdcftgg.topalldependents.mods.topaddons.reference.Colors;
-
-import cofh.core.block.TileRSControl;
-import cofh.thermalexpansion.block.dynamo.TileDynamoBase;
-import cofh.thermalexpansion.block.machine.TileMachineBase;
-import cofh.thermalexpansion.block.storage.TileCell;
-import mcjty.theoneprobe.api.ElementAlignment;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.api.TextStyleClass;
 
 @TOPAddon(dependency = "thermalexpansion")
 public class AddonThermalExpansion extends AddonBlank {

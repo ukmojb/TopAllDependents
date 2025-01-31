@@ -1,8 +1,15 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
+import com.lycanitesmobs.ObjectManager;
+import com.lycanitesmobs.core.entity.BaseCreatureEntity;
+import com.lycanitesmobs.core.entity.ExtendedPlayer;
+import com.lycanitesmobs.core.info.CreatureInfo;
+import com.lycanitesmobs.core.info.ElementInfo;
 import com.wdcftgg.topalldependents.mods.topaddons.Util;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-
+import mcjty.theoneprobe.Tools;
+import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.apiimpl.styles.LayoutStyle;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,21 +20,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
-
-import com.lycanitesmobs.core.entity.ExtendedPlayer;
-import com.lycanitesmobs.ObjectManager;
-import com.lycanitesmobs.core.entity.BaseCreatureEntity;
-import com.lycanitesmobs.core.info.CreatureInfo;
-import com.lycanitesmobs.core.info.ElementInfo;
-import mcjty.theoneprobe.Tools;
-import mcjty.theoneprobe.api.ElementAlignment;
-import mcjty.theoneprobe.api.IEntityDisplayOverride;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeHitEntityData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.api.TextStyleClass;
-import mcjty.theoneprobe.apiimpl.styles.LayoutStyle;
 
 import javax.annotation.Nonnull;
 import java.util.Collections;

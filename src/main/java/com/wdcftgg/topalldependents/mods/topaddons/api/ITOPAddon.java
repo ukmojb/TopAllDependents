@@ -1,20 +1,14 @@
 package com.wdcftgg.topalldependents.mods.topaddons.api;
 
-import net.minecraft.item.ItemArmor;
-import net.minecraftforge.common.config.Configuration;
-
 import com.wdcftgg.topalldependents.AddonManager;
 import com.wdcftgg.topalldependents.mods.topaddons.addons.AddonBlank;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.EnumChip;
+import mcjty.theoneprobe.api.*;
+import net.minecraft.item.ItemArmor;
+import net.minecraftforge.common.config.Configuration;
 
 import java.util.List;
 import java.util.Map;
-
-import mcjty.theoneprobe.api.IBlockDisplayOverride;
-import mcjty.theoneprobe.api.IEntityDisplayOverride;
-import mcjty.theoneprobe.api.IProbeConfigProvider;
-import mcjty.theoneprobe.api.IProbeInfoEntityProvider;
-import mcjty.theoneprobe.api.IProbeInfoProvider;
 
 /**
  * Interface each addon has to implement (through extending {@link AddonBlank} or directly), the

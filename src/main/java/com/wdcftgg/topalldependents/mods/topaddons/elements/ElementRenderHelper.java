@@ -1,11 +1,10 @@
 package com.wdcftgg.topalldependents.mods.topaddons.elements;
 
+import mcjty.theoneprobe.rendering.RenderHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.registry.EntityEntry;
-
-import mcjty.theoneprobe.rendering.RenderHelper;
 
 public final class ElementRenderHelper {
     public static int drawSmallText(int x, int y, String text, int color) {

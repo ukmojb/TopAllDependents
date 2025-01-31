@@ -1,8 +1,8 @@
 package com.wdcftgg.topalldependents.mods.thaumcraft;
 
+import com.wdcftgg.topalldependents.config.Config;
 import mcjty.theoneprobe.TheOneProbe;
 import mcjty.theoneprobe.api.*;
-import mcjty.theoneprobe.config.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;

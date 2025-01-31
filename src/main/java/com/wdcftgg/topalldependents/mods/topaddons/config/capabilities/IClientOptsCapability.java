@@ -1,8 +1,7 @@
 package com.wdcftgg.topalldependents.mods.topaddons.config.capabilities;
 
-import java.util.Map;
-
 import javax.annotation.Nonnull;
+import java.util.Map;
 
 /**
  * A {@link net.minecraftforge.common.capabilities.Capability} linked to an

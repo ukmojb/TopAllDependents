@@ -1,19 +1,17 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
-import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.items.ItemSeed;
 import com.blakebr0.mysticalagriculture.tileentity.reprocessor.TileEssenceReprocessor;
 import com.blakebr0.mysticalagriculture.util.MystUtils;
+import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 @TOPAddon(dependency = "mysticalagriculture")
 public class AddonMysticalAgriculture extends AddonBlank {

@@ -1,6 +1,11 @@
 package com.wdcftgg.topalldependents.mods.topaddons.config.capabilities;
 
 import com.wdcftgg.topalldependents.TopAllDependents;
+import com.wdcftgg.topalldependents.mods.topaddons.config.ConfigClient;
+import com.wdcftgg.topalldependents.mods.topaddons.network.MessageClientOptions;
+import com.wdcftgg.topalldependents.mods.topaddons.network.PacketHandler;
+import com.wdcftgg.topalldependents.mods.topaddons.reference.ElementSync;
+import com.wdcftgg.topalldependents.mods.topaddons.reference.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,13 +17,6 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
-import com.wdcftgg.topalldependents.mods.topaddons.config.ConfigClient;
-import com.wdcftgg.topalldependents.mods.topaddons.network.MessageClientOptions;
-import com.wdcftgg.topalldependents.mods.topaddons.network.PacketHandler;
-import com.wdcftgg.topalldependents.mods.topaddons.reference.ElementSync;
-import com.wdcftgg.topalldependents.mods.topaddons.reference.Reference;
 
 import javax.annotation.Nullable;
 

@@ -1,10 +1,9 @@
 package com.wdcftgg.topalldependents.mods.topaddons.network;
 
+import com.wdcftgg.topalldependents.mods.topaddons.reference.Reference;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
-
-import com.wdcftgg.topalldependents.mods.topaddons.reference.Reference;
 
 public class PacketHandler {
 

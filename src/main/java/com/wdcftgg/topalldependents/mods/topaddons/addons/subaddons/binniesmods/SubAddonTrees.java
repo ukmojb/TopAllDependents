@@ -1,18 +1,5 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons.subaddons.binniesmods;
 
-import net.minecraft.block.BlockCrops;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
-
-import com.wdcftgg.topalldependents.mods.topaddons.addons.AddonBlank;
-import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleExtraTreesMachine;
-
-import java.util.Collections;
-import java.util.List;
-
 import binnie.core.machines.Machine;
 import binnie.core.machines.TileEntityMachine;
 import binnie.core.machines.power.ComponentProcess;
@@ -22,14 +9,21 @@ import binnie.extratrees.machines.distillery.DistilleryLogic;
 import binnie.extratrees.machines.fruitpress.FruitPressLogic;
 import binnie.extratrees.machines.lumbermill.LumbermillLogic;
 import com.google.common.collect.Lists;
+import com.wdcftgg.topalldependents.mods.topaddons.addons.AddonBlank;
+import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleExtraTreesMachine;
 import mcjty.theoneprobe.Tools;
-import mcjty.theoneprobe.api.ElementAlignment;
-import mcjty.theoneprobe.api.IBlockDisplayOverride;
-import mcjty.theoneprobe.api.IProbeConfig;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
+import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.config.Config;
+import net.minecraft.block.BlockCrops;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+
+import java.util.Collections;
+import java.util.List;
+
 import static mcjty.theoneprobe.api.TextStyleClass.*;
 
 public class SubAddonTrees extends AddonBlank {

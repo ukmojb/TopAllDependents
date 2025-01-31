@@ -1,22 +1,20 @@
 package com.wdcftgg.topalldependents.mods.topaddons.elements.tconstruct;
 
-import net.minecraft.client.Minecraft;
-import net.minecraftforge.fluids.FluidStack;
-
 import com.wdcftgg.topalldependents.mods.topaddons.elements.ElementRenderHelper;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.Colors;
 import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleSmelteryFluid;
 import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleTank;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
 import io.netty.buffer.ByteBuf;
 import mcjty.theoneprobe.api.IElement;
 import mcjty.theoneprobe.apiimpl.client.ElementProgressRender;
 import mcjty.theoneprobe.network.NetworkTools;
 import mcjty.theoneprobe.rendering.RenderHelper;
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.fluids.FluidStack;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.wdcftgg.topalldependents.mods.topaddons.elements.ElementRenderHelper.drawSmallText;
 

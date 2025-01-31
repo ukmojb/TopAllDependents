@@ -1,15 +1,13 @@
 package com.wdcftgg.topalldependents.mods.topaddons.elements.bloodmagic;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.ItemStack;
-
-import com.wdcftgg.topalldependents.mods.topaddons.elements.ElementRenderHelper;
-
 import WayofTime.bloodmagic.item.inventory.ItemInventory;
+import com.wdcftgg.topalldependents.mods.topaddons.elements.ElementRenderHelper;
 import io.netty.buffer.ByteBuf;
 import mcjty.theoneprobe.api.IElement;
 import mcjty.theoneprobe.network.NetworkTools;
 import mcjty.theoneprobe.rendering.RenderHelper;
+import net.minecraft.client.Minecraft;
+import net.minecraft.item.ItemStack;
 
 public class ElementNodeFilter implements IElement {
 

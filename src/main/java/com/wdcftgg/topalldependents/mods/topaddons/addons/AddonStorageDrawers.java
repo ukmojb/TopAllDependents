@@ -1,7 +1,9 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
+import com.jaquadro.minecraft.storagedrawers.block.tile.TileEntityDrawers;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-
+import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.config.Config;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -10,15 +12,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import com.jaquadro.minecraft.storagedrawers.block.tile.TileEntityDrawers;
-import mcjty.theoneprobe.api.ElementAlignment;
-import mcjty.theoneprobe.api.IProbeConfig;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.api.TextStyleClass;
-import mcjty.theoneprobe.config.Config;
 
 @TOPAddon(dependency = "storagedrawers")
 public class AddonStorageDrawers extends AddonBlank {

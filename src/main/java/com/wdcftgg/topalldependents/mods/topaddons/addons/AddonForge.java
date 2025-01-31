@@ -1,12 +1,15 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
 import com.wdcftgg.topalldependents.TopAllDependents;
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
 import com.wdcftgg.topalldependents.mods.topaddons.elements.ElementTankGauge;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.Colors;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.Names;
-
+import mcjty.theoneprobe.api.IProbeConfig;
+import mcjty.theoneprobe.api.IProbeConfig.ConfigMode;
+import mcjty.theoneprobe.api.IProbeHitData;
+import mcjty.theoneprobe.api.IProbeInfo;
+import mcjty.theoneprobe.api.ProbeMode;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -19,19 +22,13 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidTankProperties;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-import mcjty.theoneprobe.api.IProbeConfig;
-import mcjty.theoneprobe.api.IProbeConfig.ConfigMode;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
-
-import java.awt.Color;
+import java.awt.*;
 
 @TOPAddon(dependency = "forge", fancyName = "Base", order = 1)
 public class AddonForge extends AddonBlank {
 
     public static IProbeInfo addTankElement(IProbeInfo probeInfo, String name, String fluidName, int amount, int capacity, String suffix, int color, ProbeMode mode, EntityPlayer player) {
-        return probeInfo.element(new ElementTankGauge(getElementId(player, "tank_gauge"), name, fluidName, amount, capacity, suffix, color, mode == ProbeMode.EXTENDED));
+        return probeInfo.element(new ElementTankGauge(getElementId(player, "tank_gauge"), name, fluidName + "鹅鹅鹅饿鹅鹅鹅饿", amount, capacity, suffix, color, mode == ProbeMode.EXTENDED));
     }
 
     @SuppressWarnings("UnusedReturnValue")

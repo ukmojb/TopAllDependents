@@ -1,27 +1,10 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
 import com.wdcftgg.topalldependents.TopAllDependents;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
-import net.minecraftforge.fluids.FluidTankInfo;
-
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
 import com.wdcftgg.topalldependents.mods.topaddons.addons.crossmod.AdvGensXIC2;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.Colors;
-
-import java.awt.Color;
-import java.text.DecimalFormat;
-
-import mcjty.theoneprobe.api.ElementAlignment;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.api.TextStyleClass;
+import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.apiimpl.elements.ElementProgress;
 import mcjty.theoneprobe.config.Config;
 import net.bdew.generators.config.Tuning;
@@ -35,8 +18,19 @@ import net.bdew.generators.modules.rfOutput.BlockRfOutput$;
 import net.bdew.generators.modules.turbine.BlockTurbine;
 import net.bdew.lib.data.mixins.DataSlotNumeric;
 import net.bdew.lib.multiblock.block.BlockOutput;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidTankInfo;
 import scala.collection.Iterator;
 import scala.reflect.ClassTag$;
+
+import java.awt.*;
+import java.text.DecimalFormat;
+
 import static mcjty.theoneprobe.api.TextStyleClass.PROGRESS;
 
 @TOPAddon(dependency = "advgenerators")

@@ -1,19 +1,17 @@
 package com.wdcftgg.topalldependents.mods.topaddons.elements.moofluids;
 
+import com.robrit.moofluids.common.entity.EntityFluidCow;
+import com.robrit.moofluids.common.util.EntityHelper;
 import com.wdcftgg.topalldependents.mods.topaddons.elements.ElementRenderHelper;
-
+import io.netty.buffer.ByteBuf;
+import mcjty.theoneprobe.api.IElement;
+import mcjty.theoneprobe.rendering.RenderHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-
-import com.robrit.moofluids.common.entity.EntityFluidCow;
-import com.robrit.moofluids.common.util.EntityHelper;
-import io.netty.buffer.ByteBuf;
-import mcjty.theoneprobe.api.IElement;
-import mcjty.theoneprobe.rendering.RenderHelper;
 
 public class ElementFluidCowEntity implements IElement {
 

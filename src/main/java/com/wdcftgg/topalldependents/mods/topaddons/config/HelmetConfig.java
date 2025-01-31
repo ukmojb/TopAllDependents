@@ -1,12 +1,11 @@
 package com.wdcftgg.topalldependents.mods.topaddons.config;
 
+import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;

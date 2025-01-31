@@ -2,9 +2,10 @@ package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
 import com.elytradev.architecture.common.shape.EnumShape;
 import com.wdcftgg.topalldependents.TopAllDependents;
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-
+import mcjty.theoneprobe.Tools;
+import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.config.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,15 +15,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import mcjty.theoneprobe.Tools;
-import mcjty.theoneprobe.api.ElementAlignment;
-import mcjty.theoneprobe.api.IBlockDisplayOverride;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.api.TextStyleClass;
-import mcjty.theoneprobe.config.Config;
 
 import java.util.Collections;
 import java.util.List;

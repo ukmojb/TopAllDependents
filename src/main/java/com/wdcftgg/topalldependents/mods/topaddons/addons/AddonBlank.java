@@ -1,6 +1,14 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
 import com.wdcftgg.topalldependents.TopAllDependents;
+import com.wdcftgg.topalldependents.mods.topaddons.TOPRegistrar;
+import com.wdcftgg.topalldependents.mods.topaddons.api.ITOPAddon;
+import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
+import com.wdcftgg.topalldependents.mods.topaddons.reference.ElementSync;
+import com.wdcftgg.topalldependents.mods.topaddons.reference.EnumChip;
+import com.wdcftgg.topalldependents.mods.topaddons.reference.Reference;
+import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleTOPAddonGrey;
+import mcjty.theoneprobe.api.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,21 +18,10 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
 
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
-import com.wdcftgg.topalldependents.mods.topaddons.TOPRegistrar;
-import com.wdcftgg.topalldependents.mods.topaddons.api.ITOPAddon;
-import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-import com.wdcftgg.topalldependents.mods.topaddons.reference.ElementSync;
-import com.wdcftgg.topalldependents.mods.topaddons.reference.EnumChip;
-import com.wdcftgg.topalldependents.mods.topaddons.reference.Reference;
-import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleTOPAddonGrey;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import mcjty.theoneprobe.api.*;
 
 public abstract class AddonBlank implements ITOPAddon {
 

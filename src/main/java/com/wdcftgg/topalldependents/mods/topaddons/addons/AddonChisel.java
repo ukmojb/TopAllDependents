@@ -1,16 +1,14 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
+import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
+import mcjty.theoneprobe.api.IProbeHitData;
+import mcjty.theoneprobe.api.IProbeInfo;
+import mcjty.theoneprobe.api.ProbeMode;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-
-import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
 import team.chisel.api.block.ICarvable;
 
 @TOPAddon(dependency = "chisel")

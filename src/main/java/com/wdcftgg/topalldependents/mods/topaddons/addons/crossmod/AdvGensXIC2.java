@@ -1,16 +1,13 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons.crossmod;
 
-import net.minecraft.tileentity.TileEntity;
-
 import com.wdcftgg.topalldependents.mods.topaddons.addons.AddonBlank;
-
+import mcjty.theoneprobe.api.IProbeInfo;
 import net.bdew.generators.modules.euOutput.BlockEuOutputBase;
 import net.bdew.generators.modules.euOutput.TileEuOutputBase;
 import net.bdew.lib.multiblock.block.BlockOutput;
+import net.minecraft.tileentity.TileEntity;
 
 import java.text.DecimalFormat;
-
-import mcjty.theoneprobe.api.IProbeInfo;
 
 public final class AdvGensXIC2 {
 

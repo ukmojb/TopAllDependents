@@ -1,23 +1,18 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
+import com.robrit.moofluids.common.entity.EntityFluidCow;
+import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
+import com.wdcftgg.topalldependents.mods.topaddons.elements.moofluids.ElementFluidCowEntity;
+import mcjty.theoneprobe.Tools;
+import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.config.Config;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-import com.wdcftgg.topalldependents.mods.topaddons.elements.moofluids.ElementFluidCowEntity;
-
 import java.util.Collections;
 import java.util.List;
 
-import com.robrit.moofluids.common.entity.EntityFluidCow;
-import mcjty.theoneprobe.Tools;
-import mcjty.theoneprobe.api.ElementAlignment;
-import mcjty.theoneprobe.api.IEntityDisplayOverride;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.config.Config;
 import static mcjty.theoneprobe.api.TextStyleClass.MODNAME;
 import static mcjty.theoneprobe.api.TextStyleClass.NAME;
 

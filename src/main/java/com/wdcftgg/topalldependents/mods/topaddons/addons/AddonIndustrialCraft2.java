@@ -1,38 +1,18 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
-import ic2.api.recipe.IFluidHeatManager;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
-import net.minecraftforge.fluids.FluidStack;
-
 import com.wdcftgg.topalldependents.mods.topaddons.Util;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.Colors;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.EnumChip;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.Names;
 import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleTOPAddonGrey;
-
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.function.Function;
-
 import ic2.api.crops.ICropTile;
 import ic2.api.energy.EnergyNet;
 import ic2.api.energy.tile.IKineticSource;
 import ic2.api.item.IElectricItem;
 import ic2.api.reactor.IReactor;
 import ic2.api.reactor.IReactorChamber;
-import ic2.api.recipe.ISemiFluidFuelManager;
+import ic2.api.recipe.IFluidHeatManager;
 import ic2.api.recipe.Recipes;
 import ic2.core.block.BlockIC2Fence;
 import ic2.core.block.TileEntityBlock;
@@ -55,13 +35,25 @@ import ic2.core.item.armor.ItemArmorQuantumSuit;
 import ic2.core.item.armor.ItemArmorSolarHelmet;
 import ic2.core.ref.ItemName;
 import ic2.core.util.ConfigUtil;
-import mcjty.theoneprobe.api.ElementAlignment;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.NumberFormat;
-import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.api.TextStyleClass;
+import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.config.Config;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidStack;
+
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.function.Function;
 
 @TOPAddon(dependency = "ic2", order = 0)
 public class AddonIndustrialCraft2 extends AddonBlank {

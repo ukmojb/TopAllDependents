@@ -1,6 +1,9 @@
 package com.wdcftgg.topalldependents.mods.topaddons.helmets;
 
+import com.google.common.collect.Lists;
+import com.wdcftgg.topalldependents.AddonManager;
 import com.wdcftgg.topalldependents.TopAllDependents;
+import com.wdcftgg.topalldependents.mods.topaddons.config.HelmetConfig;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
@@ -13,17 +16,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
-import com.wdcftgg.topalldependents.AddonManager;
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
-import com.wdcftgg.topalldependents.mods.topaddons.config.HelmetConfig;
-
-import com.google.common.collect.Lists;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommandTOPHelmet implements ICommand {
 

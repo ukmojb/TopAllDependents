@@ -1,6 +1,23 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
+import com.google.common.collect.Lists;
 import com.wdcftgg.topalldependents.TopAllDependents;
+import com.wdcftgg.topalldependents.mods.topaddons.Util;
+import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
+import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleTOPAddonGrey;
+import li.cil.oc.api.Items;
+import li.cil.oc.api.machine.Machine;
+import li.cil.oc.api.network.Component;
+import li.cil.oc.api.network.Node;
+import li.cil.oc.api.network.Visibility;
+import li.cil.oc.common.block.SimpleBlock;
+import li.cil.oc.common.entity.Drone;
+import li.cil.oc.common.tileentity.*;
+import li.cil.oc.common.tileentity.traits.Environment;
+import mcjty.theoneprobe.Tools;
+import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.apiimpl.elements.ElementProgress;
+import mcjty.theoneprobe.config.Config;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,45 +29,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
-import com.wdcftgg.topalldependents.mods.topaddons.Util;
-import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleTOPAddonGrey;
-
-import com.google.common.collect.Lists;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import li.cil.oc.api.Items;
-import li.cil.oc.api.machine.Machine;
-import li.cil.oc.api.network.Component;
-import li.cil.oc.api.network.Node;
-import li.cil.oc.api.network.Visibility;
-import li.cil.oc.common.block.SimpleBlock;
-import li.cil.oc.common.entity.Drone;
-import li.cil.oc.common.tileentity.Assembler;
-import li.cil.oc.common.tileentity.Charger;
-import li.cil.oc.common.tileentity.Printer;
-import li.cil.oc.common.tileentity.Rack;
-import li.cil.oc.common.tileentity.Raid;
-import li.cil.oc.common.tileentity.Transposer;
-import li.cil.oc.common.tileentity.Waypoint;
-import li.cil.oc.common.tileentity.traits.Environment;
-import li.cil.oc.common.tileentity.Disassembler;
-import mcjty.theoneprobe.Tools;
-import mcjty.theoneprobe.api.ElementAlignment;
-import mcjty.theoneprobe.api.IBlockDisplayOverride;
-import mcjty.theoneprobe.api.IEntityDisplayOverride;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeHitEntityData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
-import mcjty.theoneprobe.api.TextStyleClass;
-import mcjty.theoneprobe.apiimpl.elements.ElementProgress;
-import mcjty.theoneprobe.config.Config;
 
 import static mcjty.theoneprobe.api.TextStyleClass.MODNAME;
 import static mcjty.theoneprobe.api.TextStyleClass.PROGRESS;

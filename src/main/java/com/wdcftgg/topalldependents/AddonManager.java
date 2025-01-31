@@ -4,18 +4,13 @@ import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
 import com.wdcftgg.topalldependents.mods.topaddons.api.ITOPAddon;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.EnumChip;
-
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.discovery.ASMDataTable;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class AddonManager {
 

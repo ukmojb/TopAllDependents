@@ -1,29 +1,9 @@
 package com.wdcftgg.topalldependents.config;
 
 
-import com.wdcftgg.topalldependents.TopAllDependents;
 import mcjty.theoneprobe.TheOneProbe;
-import mcjty.theoneprobe.api.IOverlayStyle;
-import mcjty.theoneprobe.api.IProbeConfig;
-import mcjty.theoneprobe.api.NumberFormat;
-import mcjty.theoneprobe.api.TextStyleClass;
-import mcjty.theoneprobe.apiimpl.ProbeConfig;
-import mcjty.theoneprobe.apiimpl.styles.DefaultOverlayStyle;
-import mcjty.theoneprobe.setup.ModSetup;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.config.Configuration;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.Level;
-
-import java.io.File;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import static com.wdcftgg.topalldependents.TopAllDependents.modConfigDir;
-import static mcjty.theoneprobe.api.TextStyleClass.*;
 
 public class Config {
 

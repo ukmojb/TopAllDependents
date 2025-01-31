@@ -1,5 +1,7 @@
 package com.wdcftgg.topalldependents.mods.topaddons.helmets;
 
+import com.wdcftgg.topalldependents.AddonManager;
+import com.wdcftgg.topalldependents.mods.topaddons.reference.EnumChip;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -15,10 +17,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import com.wdcftgg.topalldependents.AddonManager;
-import com.wdcftgg.topalldependents.mods.topaddons.reference.EnumChip;
-
 import org.lwjgl.opengl.GL11;
 
 import javax.annotation.Nonnull;

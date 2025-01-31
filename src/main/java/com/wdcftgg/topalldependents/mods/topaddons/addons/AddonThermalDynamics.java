@@ -1,18 +1,16 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-
-import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
-
 import cofh.thermaldynamics.duct.entity.DuctUnitTransport;
 import cofh.thermaldynamics.duct.tiles.TileTransportDuct;
+import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
 import mcjty.theoneprobe.api.ElementAlignment;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 @TOPAddon(dependency = "thermaldynamics")
 public class AddonThermalDynamics extends AddonBlank {

@@ -1,18 +1,16 @@
 package com.wdcftgg.topalldependents.mods.topaddons.elements;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.I18n;
-
 import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleTank;
-
-import java.awt.*;
-
 import io.netty.buffer.ByteBuf;
 import mcjty.theoneprobe.api.IElement;
 import mcjty.theoneprobe.apiimpl.client.ElementProgressRender;
 import mcjty.theoneprobe.apiimpl.client.ElementTextRender;
 import mcjty.theoneprobe.network.NetworkTools;
 import mcjty.theoneprobe.rendering.RenderHelper;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.I18n;
+
+import java.awt.*;
 
 import static com.wdcftgg.topalldependents.mods.topaddons.elements.ElementRenderHelper.drawSmallText;
 

@@ -1,5 +1,8 @@
 package com.wdcftgg.topalldependents.mods.topaddons.helmets.recipes;
 
+import com.google.gson.JsonObject;
+import com.wdcftgg.topalldependents.AddonManager;
+import com.wdcftgg.topalldependents.mods.topaddons.config.HelmetConfig;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemArmor;
@@ -13,12 +16,8 @@ import net.minecraftforge.common.crafting.IRecipeFactory;
 import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-import com.wdcftgg.topalldependents.AddonManager;
-import com.wdcftgg.topalldependents.mods.topaddons.config.HelmetConfig;
-
 import javax.annotation.Nonnull;
 
-import com.google.gson.JsonObject;
 import static mcjty.theoneprobe.items.ModItems.PROBETAG;
 
 public class RecipeHelmetUnprobing extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {

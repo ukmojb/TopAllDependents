@@ -1,28 +1,22 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.common.Loader;
-
+import binnie.genetics.item.GeneticLiquid;
 import com.wdcftgg.topalldependents.mods.topaddons.addons.subaddons.binniesmods.SubAddonBotany;
 import com.wdcftgg.topalldependents.mods.topaddons.addons.subaddons.binniesmods.SubAddonGenetics;
 import com.wdcftgg.topalldependents.mods.topaddons.addons.subaddons.binniesmods.SubAddonTrees;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
 import com.wdcftgg.topalldependents.mods.topaddons.elements.binnies.ElementFlowerColor;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.Colors;
+import mcjty.theoneprobe.api.*;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Loader;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import binnie.genetics.item.GeneticLiquid;
-import mcjty.theoneprobe.api.IBlockDisplayOverride;
-import mcjty.theoneprobe.api.IProbeConfig;
-import mcjty.theoneprobe.api.IProbeHitData;
-import mcjty.theoneprobe.api.IProbeInfo;
-import mcjty.theoneprobe.api.ProbeMode;
 
 @TOPAddon(dependency = "binniecore", fancyName = "Binnie's Mods")
 public class AddonBinniesMods extends AddonBlank {

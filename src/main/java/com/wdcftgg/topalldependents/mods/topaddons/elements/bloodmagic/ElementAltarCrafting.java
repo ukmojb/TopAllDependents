@@ -2,7 +2,10 @@ package com.wdcftgg.topalldependents.mods.topaddons.elements.bloodmagic;
 
 import com.wdcftgg.topalldependents.mods.topaddons.addons.AddonBloodMagic;
 import com.wdcftgg.topalldependents.mods.topaddons.elements.ElementRenderHelper;
-
+import io.netty.buffer.ByteBuf;
+import mcjty.theoneprobe.api.IElement;
+import mcjty.theoneprobe.network.NetworkTools;
+import mcjty.theoneprobe.rendering.RenderHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,11 +14,6 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-
-import io.netty.buffer.ByteBuf;
-import mcjty.theoneprobe.api.IElement;
-import mcjty.theoneprobe.network.NetworkTools;
-import mcjty.theoneprobe.rendering.RenderHelper;
 import org.lwjgl.opengl.GL11;
 
 public class ElementAltarCrafting implements IElement {

@@ -1,16 +1,5 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons.subaddons.binniesmods;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
-
-import com.wdcftgg.topalldependents.mods.topaddons.addons.AddonBlank;
-import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleGeneticsMachine;
-
-import java.util.List;
-
 import binnie.core.machines.Machine;
 import binnie.core.machines.TileEntityMachine;
 import binnie.core.machines.power.ComponentProcess;
@@ -27,10 +16,19 @@ import binnie.genetics.machine.sequencer.Sequencer;
 import binnie.genetics.machine.sequencer.SequencerLogic;
 import binnie.genetics.machine.splicer.SplicerLogic;
 import com.google.common.collect.Lists;
+import com.wdcftgg.topalldependents.mods.topaddons.addons.AddonBlank;
+import com.wdcftgg.topalldependents.mods.topaddons.styles.ProgressStyleGeneticsMachine;
 import mcjty.theoneprobe.api.ElementAlignment;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.ProbeMode;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
+
+import java.util.List;
 
 public class SubAddonGenetics extends AddonBlank {
 

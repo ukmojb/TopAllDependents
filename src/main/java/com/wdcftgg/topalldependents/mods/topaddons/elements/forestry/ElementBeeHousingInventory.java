@@ -1,16 +1,14 @@
 package com.wdcftgg.topalldependents.mods.topaddons.elements.forestry;
 
+import com.wdcftgg.topalldependents.mods.topaddons.elements.ElementRenderHelper;
+import io.netty.buffer.ByteBuf;
+import mcjty.theoneprobe.api.IElement;
+import mcjty.theoneprobe.network.NetworkTools;
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-
-import com.wdcftgg.topalldependents.mods.topaddons.elements.ElementRenderHelper;
-
-import io.netty.buffer.ByteBuf;
-import mcjty.theoneprobe.api.IElement;
-import mcjty.theoneprobe.network.NetworkTools;
 
 import static mcjty.theoneprobe.rendering.RenderHelper.renderItemStack;
 

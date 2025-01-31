@@ -1,6 +1,8 @@
 package com.wdcftgg.topalldependents.mods.topaddons.network;
 
 import com.wdcftgg.topalldependents.TopAllDependents;
+import com.wdcftgg.topalldependents.mods.topaddons.config.capabilities.IClientOptsCapability;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
@@ -8,13 +10,8 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
-import com.wdcftgg.topalldependents.mods.topaddons.config.capabilities.IClientOptsCapability;
-
 import java.util.HashMap;
 import java.util.Map;
-
-import io.netty.buffer.ByteBuf;
 
 public class MessageClientOptions implements IMessage, IMessageHandler<MessageClientOptions, IMessage> {
 

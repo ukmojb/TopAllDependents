@@ -1,6 +1,8 @@
 package com.wdcftgg.topalldependents.mods.topaddons.config;
 
+import com.google.common.collect.Lists;
 import com.wdcftgg.topalldependents.TopAllDependents;
+import com.wdcftgg.topalldependents.mods.topaddons.reference.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -12,11 +14,6 @@ import net.minecraftforge.fml.client.config.GuiConfigEntries;
 import net.minecraftforge.fml.client.config.IConfigElement;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
-import com.wdcftgg.topalldependents.mods.topaddons.reference.Reference;
-
-import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.List;

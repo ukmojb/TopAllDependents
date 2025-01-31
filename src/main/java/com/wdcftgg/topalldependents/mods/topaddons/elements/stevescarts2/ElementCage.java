@@ -1,5 +1,9 @@
 package com.wdcftgg.topalldependents.mods.topaddons.elements.stevescarts2;
 
+import io.netty.buffer.ByteBuf;
+import mcjty.theoneprobe.api.IElement;
+import mcjty.theoneprobe.network.NetworkTools;
+import mcjty.theoneprobe.rendering.RenderHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -7,11 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import io.netty.buffer.ByteBuf;
-import mcjty.theoneprobe.api.IElement;
-import mcjty.theoneprobe.network.NetworkTools;
-import mcjty.theoneprobe.rendering.RenderHelper;
 import vswe.stevescarts.items.ModItems;
 
 public class ElementCage implements IElement {
