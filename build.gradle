@@ -127,6 +127,7 @@ dependencies {
     implementation rfg.deobf("curse.maven:thaumcraft-223628:2629023")
     implementation rfg.deobf("curse.maven:AE2UnofficialExtendedLife-570458:4961400")
     implementation rfg.deobf("curse.maven:ProjectE-226410:2702991")
+    implementation rfg.deobf("curse.maven:Ancient Warfare2-224602:3293318")
 
     implementation rfg.deobf("curse.maven:industrialcraft2-242638:3838713")
     implementation rfg.deobf("curse.maven:OpenComputers-223008:4630537")

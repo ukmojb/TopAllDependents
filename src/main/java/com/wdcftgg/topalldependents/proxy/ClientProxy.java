@@ -2,6 +2,7 @@ package com.wdcftgg.topalldependents.proxy;
 
 
 import com.wdcftgg.topalldependents.AddonManager;
+import com.wdcftgg.topalldependents.event.NameEvent;
 import com.wdcftgg.topalldependents.mods.topaddons.config.HelmetConfig;
 import com.wdcftgg.topalldependents.mods.topaddons.helmets.LayerChip;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.EnumChip;
@@ -45,6 +46,7 @@ public class ClientProxy extends CommonProxy {
 		super.onInit();
 //		MinecraftForge.EVENT_BUS.register(new EventLossSpatialSense());
 		MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.EVENT_BUS.register(new NameEvent());
 	}
 
 

@@ -1,6 +1,9 @@
 package com.wdcftgg.topalldependents.proxy;
 
 
+import com.wdcftgg.topalldependents.event.NameEvent;
+import net.minecraftforge.common.MinecraftForge;
+
 public class ServerProxy extends CommonProxy {
 
     public ServerProxy() {
@@ -16,6 +19,6 @@ public class ServerProxy extends CommonProxy {
 
     public void onInit(){
         super.onInit();
-//        MinecraftForge.EVENT_BUS.register(new EventModuleXP());
+        MinecraftForge.EVENT_BUS.register(new NameEvent());
     }
 }
