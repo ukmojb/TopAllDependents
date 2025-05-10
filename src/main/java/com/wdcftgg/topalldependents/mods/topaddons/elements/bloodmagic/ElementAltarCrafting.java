@@ -47,10 +47,9 @@ public class ElementAltarCrafting implements IElement {
         RenderHelper.renderItemStack(mc, mc.getRenderItem(), result, x + 84, y, "");
         ElementRenderHelper.drawGreyBox(x + 18, y + 3, x + 82, y + 13);
 
-
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
         GlStateManager.enableBlend();
-        mc.getTextureManager().bindTexture(new ResourceLocation("topaddons:textures/elements/bm_altar.png"));
+        mc.getTextureManager().bindTexture(new ResourceLocation("topalldependents:textures/elements/bm_altar.png"));
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder buf = tessellator.getBuffer();
         buf.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);

@@ -128,6 +128,7 @@ public class AddonBloodMagic extends AddonBlank {
 
         TileEntity tile = world.getTileEntity(data.getPos());
 
+
         if (tile instanceof IBloodAltar && holdingDivine) {
             IBloodAltar altar = (IBloodAltar) tile;
             textPrefixed(probeInfo, "{*topaddons.bloodmagic:tier*}", NumeralHelper.toRoman(altar.getTier().toInt()), TextFormatting.RED);

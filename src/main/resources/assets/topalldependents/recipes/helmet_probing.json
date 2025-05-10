@@ -1,5 +1,5 @@
 {
-  "type": "topaddons:helmet_probing",
+  "type": "topalldependents:helmet_probing",
   "probe": {
     "item": "theoneprobe:probe"
   }

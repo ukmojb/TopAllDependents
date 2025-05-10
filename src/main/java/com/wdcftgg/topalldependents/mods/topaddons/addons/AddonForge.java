@@ -28,7 +28,7 @@ import java.awt.*;
 public class AddonForge extends AddonBlank {
 
     public static IProbeInfo addTankElement(IProbeInfo probeInfo, String name, String fluidName, int amount, int capacity, String suffix, int color, ProbeMode mode, EntityPlayer player) {
-        return probeInfo.element(new ElementTankGauge(getElementId(player, "tank_gauge"), name, fluidName + "鹅鹅鹅饿鹅鹅鹅饿", amount, capacity, suffix, color, mode == ProbeMode.EXTENDED));
+        return probeInfo.element(new ElementTankGauge(getElementId(player, "tank_gauge"), name, fluidName, amount, capacity, suffix, color, mode == ProbeMode.EXTENDED));
     }
 
     @SuppressWarnings("UnusedReturnValue")
