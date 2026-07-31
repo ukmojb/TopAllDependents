@@ -67,7 +67,7 @@ public class SubAddonBotany extends AddonBlank {
                     textPrefixed(probeInfo, "pH Tolerance", AlleleHelper.getAllele(flower.getGenome().getTolerancePH()).getAlleleName());
                 }
             } else if (mode == ProbeMode.EXTENDED) {
-                probeInfo.text(TextStyleClass.OBSOLETE + "{*for.gui.unknown*}");
+                probeInfo.text(TextStyleClass.OBSOLETE + Tools.translate("for.gui.unknown").getFormattedText());
             }
 
             IBlockState blockStateBelow = world.getBlockState(data.getPos().down());
@@ -80,17 +80,17 @@ public class SubAddonBotany extends AddonBlank {
                         MapColor.DIRT.colorValue + 0xff000000))
                         .item(SOIL.getPickBlock(blockStateBelow, null, world, data.getPos().down(), player))
                         .vertical();
-                textPrefixed(soilInfo, "{*botany.moisture*}", "{*botany.moisture." + soil.getMoisture(world, data.getPos().down()).getName() + "*}");
-                textPrefixed(soilInfo, "{*botany.ph*}", "{*botany.ph." + soil.getPH(world, data.getPos().down()).getName() + "*}");
+                textPrefixed(soilInfo, Tools.translate("botany.moisture").getFormattedText(), Tools.translate("botany.moisture." + soil.getMoisture(world, data.getPos().down()).getName()).getFormattedText());
+                textPrefixed(soilInfo, Tools.translate("botany.ph").getFormattedText(), Tools.translate("botany.ph." + soil.getPH(world, data.getPos().down()).getName()).getFormattedText());
             }
         }
 
         if (blockState.getBlock() instanceof IBlockSoil && Util.isHoldingItem(player, SOIL_METER)) {
             IBlockSoil soil = (IBlockSoil) blockState.getBlock();
-            textPrefixed(probeInfo, "{*botany.moisture*}", "{*botany.moisture." + soil.getMoisture(world, data.getPos()).getName() + "*}");
-            textPrefixed(probeInfo, "{*botany.ph*}", "{*botany.ph." + soil.getPH(world, data.getPos()).getName() + "*}");
+            textPrefixed(probeInfo, Tools.translate("botany.moisture").getFormattedText(), Tools.translate("botany.moisture." + soil.getMoisture(world, data.getPos()).getName()).getFormattedText());
+            textPrefixed(probeInfo, Tools.translate("botany.ph").getFormattedText(), Tools.translate("botany.ph." + soil.getPH(world, data.getPos()).getName()).getFormattedText());
             if (soil.resistsWeeds(world, data.getPos())) {
-                probeInfo.text(TextStyleClass.OK + "{*botany.soil.weedkiller*}");
+                probeInfo.text(TextStyleClass.OK + Tools.translate("botany.soil.weedkiller").getFormattedText());
             }
         }
     }

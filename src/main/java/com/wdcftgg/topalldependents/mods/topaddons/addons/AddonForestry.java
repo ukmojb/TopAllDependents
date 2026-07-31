@@ -63,6 +63,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import mcjty.theoneprobe.Tools;
 
 @TOPAddon(dependency = "forestry")
 public class AddonForestry extends AddonBlank {
@@ -94,7 +95,7 @@ public class AddonForestry extends AddonBlank {
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         if (blockState.getBlock() == ModuleCore.getBlocks().bogEarth) {
-            textPrefixed(probeInfo, "{*topaddons.forestry:maturity*}", TextStyleClass.WARNING + String.valueOf(blockState.getValue(BlockBogEarth.MATURITY) * 100 / 3) + "%");
+            textPrefixed(probeInfo, Tools.translate("topaddons.forestry:maturity").getFormattedText(), TextStyleClass.WARNING + String.valueOf(blockState.getValue(BlockBogEarth.MATURITY) * 100 / 3) + "%");
         }
 
         TileEntity tile = world.getTileEntity(data.getPos());
@@ -116,7 +117,7 @@ public class AddonForestry extends AddonBlank {
                     probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).item(queen).progress(progress, 100, new ProgressStyleForestryMultiColored(progress).showText(false));
 
                     if (mode == ProbeMode.EXTENDED) {
-                        textPrefixed(probeInfo, "{*for.gui.species*}", BeeManager.beeRoot.getMember(queen).getGenome().getSpeciesRoot().getMember(queen).getDisplayName());
+                        textPrefixed(probeInfo, Tools.translate("for.gui.species").getFormattedText(), BeeManager.beeRoot.getMember(queen).getGenome().getSpeciesRoot().getMember(queen).getDisplayName());
                     }
                 }
 
@@ -162,12 +163,12 @@ public class AddonForestry extends AddonBlank {
             if (tile instanceof TileLeaves) {
                 TileLeaves leaves = (TileLeaves) tile;
                 if (leaves.hasFruit()) {
-                    String ripeness = leaves.getRipeness() >= 1.0F ? TextStyleClass.OK + "{*topaddons.forestry:ripe*}" : TextFormatting.RED + "{*topaddons.forestry:unripe*}";
-                    textPrefixed(probeInfo, "{*topaddons.forestry:fruit*}", leaves.getTree().getGenome().getFruitProvider().getDescription() + " - " + ripeness);
+                    String ripeness = leaves.getRipeness() >= 1.0F ? TextStyleClass.OK + Tools.translate("topaddons.forestry:ripe").getFormattedText() : TextFormatting.RED + Tools.translate("topaddons.forestry:unripe").getFormattedText();
+                    textPrefixed(probeInfo, Tools.translate("topaddons.forestry:fruit").getFormattedText(), leaves.getTree().getGenome().getFruitProvider().getDescription() + " - " + ripeness);
                 }
 
                 if (leaves.isPollinated() && GeneticsUtil.hasNaturalistEye(player)) {
-                    probeInfo.text(TextStyleClass.LABEL + "{*topaddons.forestry:pollinated*}");
+                    probeInfo.text(TextStyleClass.LABEL + Tools.translate("topaddons.forestry:pollinated").getFormattedText());
                 }
             }
 
@@ -176,14 +177,14 @@ public class AddonForestry extends AddonBlank {
                 ITree tree = ((TileSapling) tile).getTree();
                 if (mode == ProbeMode.EXTENDED) {
                     if (tree.isAnalyzed()) {
-                        textPrefixed(probeInfo, "{*for.gui.saplings*}", tree.getGenome().getActiveAllele(EnumTreeChromosome.FERTILITY).getAlleleName());
-                        textPrefixed(probeInfo, "{*for.gui.maturity*}", tree.getGenome().getActiveAllele(EnumTreeChromosome.MATURATION).getAlleleName());
-                        textPrefixed(probeInfo, "{*for.gui.height*}", tree.getGenome().getActiveAllele(EnumTreeChromosome.HEIGHT).getAlleleName());
-                        textPrefixed(probeInfo, "{*for.gui.girth*}", tree.getGenome().getActiveAllele(EnumTreeChromosome.GIRTH).toString());
-                        textPrefixed(probeInfo, "{*for.gui.yield*}", tree.getGenome().getActiveAllele(EnumTreeChromosome.YIELD).getAlleleName());
-                        textPrefixed(probeInfo, "{*for.gui.sappiness*}", tree.getGenome().getActiveAllele(EnumTreeChromosome.SAPPINESS).getAlleleName());
+                        textPrefixed(probeInfo, Tools.translate("for.gui.saplings").getFormattedText(), tree.getGenome().getActiveAllele(EnumTreeChromosome.FERTILITY).getAlleleName());
+                        textPrefixed(probeInfo, Tools.translate("for.gui.maturity").getFormattedText(), tree.getGenome().getActiveAllele(EnumTreeChromosome.MATURATION).getAlleleName());
+                        textPrefixed(probeInfo, Tools.translate("for.gui.height").getFormattedText(), tree.getGenome().getActiveAllele(EnumTreeChromosome.HEIGHT).getAlleleName());
+                        textPrefixed(probeInfo, Tools.translate("for.gui.girth").getFormattedText(), tree.getGenome().getActiveAllele(EnumTreeChromosome.GIRTH).toString());
+                        textPrefixed(probeInfo, Tools.translate("for.gui.yield").getFormattedText(), tree.getGenome().getActiveAllele(EnumTreeChromosome.YIELD).getAlleleName());
+                        textPrefixed(probeInfo, Tools.translate("for.gui.sappiness").getFormattedText(), tree.getGenome().getActiveAllele(EnumTreeChromosome.SAPPINESS).getAlleleName());
                     } else {
-                        probeInfo.text(TextStyleClass.OBSOLETE + "{*for.gui.unknown*}");
+                        probeInfo.text(TextStyleClass.OBSOLETE + Tools.translate("for.gui.unknown").getFormattedText());
                     }
                 }
             }
@@ -231,7 +232,7 @@ public class AddonForestry extends AddonBlank {
                 } else {
                     speed = 4;
                 }
-                textPrefixed(probeInfo, "{*topaddons.forestry:moistener_speed*}", (speed == 0 ? TextStyleClass.WARNING.toString() : "") + speed);
+                textPrefixed(probeInfo, Tools.translate("topaddons.forestry:moistener_speed").getFormattedText(), (speed == 0 ? TextStyleClass.WARNING.toString() : "") + speed);
 
                 /**
                  *  Wheat consumption process
@@ -289,10 +290,10 @@ public class AddonForestry extends AddonBlank {
             if (tile instanceof TileEngine) {
                 TileEngine engine = ((TileEngine) tile);
                 if (mode == ProbeMode.EXTENDED) {
-                    textPrefixed(probeInfo, "{*topaddons.forestry:engine_stored*}", engine.getEnergyManager().getEnergyStored() + " RF");
-                    textPrefixed(probeInfo, "{*topaddons.forestry:engine_heat*}", engine.getHeat() / 10 + " C" + (errorStates.contains(EnumErrorCode.FORCED_COOLDOWN) ? TextStyleClass.ERROR + " ({*for.errors.forced_cooldown.desc*})" : ""));
+                    textPrefixed(probeInfo, Tools.translate("topaddons.forestry:engine_stored").getFormattedText(), engine.getEnergyManager().getEnergyStored() + " RF");
+                    textPrefixed(probeInfo, Tools.translate("topaddons.forestry:engine_heat").getFormattedText(), engine.getHeat() / 10 + " C" + (errorStates.contains(EnumErrorCode.FORCED_COOLDOWN) ? TextStyleClass.ERROR + " (" + Tools.translate("for.errors.forced_cooldown.desc").getFormattedText() + ")" : ""));
                 }
-                probeInfo.text(TextStyleClass.LABEL + "{*topaddons:generating*} " + TextStyleClass.INFOIMP + engine.getCurrentOutput() + TextStyleClass.LABEL + " RF/t");
+                probeInfo.text(TextStyleClass.LABEL + Tools.translate("topaddons:generating").getFormattedText() + " " + TextStyleClass.INFOIMP + engine.getCurrentOutput() + TextStyleClass.LABEL + " RF/t");
             }
 
             /*
@@ -303,7 +304,7 @@ public class AddonForestry extends AddonBlank {
              * \u21aa = ↪
              */
             if (errorStates.size() > 0) {
-                probeInfo.text(TextStyleClass.ERROR + "{*topaddons.forestry:errors_nowork*}");
+                probeInfo.text(TextStyleClass.ERROR + Tools.translate("topaddons.forestry:errors_nowork").getFormattedText());
                 errorStates.forEach(state -> {
                     if (mode == ProbeMode.EXTENDED || NORMAL_STATES.contains(state) && !player.getCapability(TopAllDependents.OPTS_CAP, null).getBoolean("forestryReasonCrouch")) {
                         probeInfo.text(TextStyleClass.ERROR + "\u21aa " + TextStyleClass.WARNING + IProbeInfo.STARTLOC + state.getUnlocalizedDescription() + IProbeInfo.ENDLOC);
@@ -319,17 +320,17 @@ public class AddonForestry extends AddonBlank {
         if (entity instanceof IEntityButterfly) {
             IButterfly butterfly = ((IEntityButterfly) entity).getButterfly();
             if (!butterfly.isPureBred(EnumButterflyChromosome.SPECIES)) {
-                textPrefixed(probeInfo, "{*for.gui.hybrid*}", butterfly.getGenome().getInactiveAllele(EnumButterflyChromosome.SPECIES).getAlleleName());
+                textPrefixed(probeInfo, Tools.translate("for.gui.hybrid").getFormattedText(), butterfly.getGenome().getInactiveAllele(EnumButterflyChromosome.SPECIES).getAlleleName());
             }
 
             if (mode == ProbeMode.EXTENDED) {
                 if (butterfly.isAnalyzed()) {
-                    textPrefixed(probeInfo, "{*for.gui.size*}", butterfly.getGenome().getActiveAllele(EnumButterflyChromosome.SIZE).getAlleleName());
-                    textPrefixed(probeInfo, "{*for.gui.speed*}", butterfly.getGenome().getActiveAllele(EnumButterflyChromosome.SPEED).getAlleleName());
-                    textPrefixed(probeInfo, "{*for.gui.lifespan*}", butterfly.getGenome().getActiveAllele(EnumButterflyChromosome.LIFESPAN).getAlleleName());
-                    textPrefixed(probeInfo, "{*for.gui.fertility*}", butterfly.getGenome().getActiveAllele(EnumButterflyChromosome.FERTILITY).getAlleleName());
+                    textPrefixed(probeInfo, Tools.translate("for.gui.size").getFormattedText(), butterfly.getGenome().getActiveAllele(EnumButterflyChromosome.SIZE).getAlleleName());
+                    textPrefixed(probeInfo, Tools.translate("for.gui.speed").getFormattedText(), butterfly.getGenome().getActiveAllele(EnumButterflyChromosome.SPEED).getAlleleName());
+                    textPrefixed(probeInfo, Tools.translate("for.gui.lifespan").getFormattedText(), butterfly.getGenome().getActiveAllele(EnumButterflyChromosome.LIFESPAN).getAlleleName());
+                    textPrefixed(probeInfo, Tools.translate("for.gui.fertility").getFormattedText(), butterfly.getGenome().getActiveAllele(EnumButterflyChromosome.FERTILITY).getAlleleName());
                 } else {
-                    probeInfo.text(TextStyleClass.OBSOLETE + "{*for.gui.unknown*}");
+                    probeInfo.text(TextStyleClass.OBSOLETE + Tools.translate("for.gui.unknown").getFormattedText());
                 }
             }
         }

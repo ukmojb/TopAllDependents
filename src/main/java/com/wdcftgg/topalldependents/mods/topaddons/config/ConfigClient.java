@@ -42,7 +42,7 @@ public class ConfigClient {
             config.removeCategory(oldOptions);
         }
 
-        fluidGaugeDisplay = config.getString("fluidGaugeDisplay", "Client Options", "Both", "Which tank gauge(s) to display (The One Probe, TOP Addons, Both).", new String[]{"The One Probe", "TOP Addons", "Both"});
+        fluidGaugeDisplay = config.getString("fluidGaugeDisplay", "Client Options", "TOP Addons", "Which tank gauge(s) to display (The One Probe, TOP Addons, Both).", new String[]{"The One Probe", "TOP Addons", "Both"});
         forestryReasonCrouch = config.getBoolean("forestryReasonCrouch", "Client Options", false, "Only show Forestry machines' important failure reasons when crouching.");
         showPitch = config.getBoolean("showPitch", "Client Options", true, "Display pitch and instrument on Note Blocks.");
         smelteryInIngots = config.getBoolean("smelteryInIngots", "Client Options", true, "Show smeltery fluid volume in ingots.");

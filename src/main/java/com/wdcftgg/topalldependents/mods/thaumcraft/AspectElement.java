@@ -1,7 +1,6 @@
 package com.wdcftgg.topalldependents.mods.thaumcraft;
 
 import io.netty.buffer.ByteBuf;
-import mcjty.theoneprobe.TheOneProbe;
 import mcjty.theoneprobe.api.IElement;
 import mcjty.theoneprobe.api.IElementFactory;
 import thaumcraft.api.aspects.Aspect;
@@ -12,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 public class AspectElement implements IElement {
 
     public static final int WIDTH = 16, HEIGHT = 16;
+    private static int elementId;
 
     @Nullable
     private final Aspect aspect; // null represents error state
@@ -53,7 +53,11 @@ public class AspectElement implements IElement {
 
     @Override
     public int getID() {
-        return TheOneProbe.getAspectElementId();
+        return elementId;
+    }
+
+    public static void setElementId(int elementId) {
+        AspectElement.elementId = elementId;
     }
 
     public static class Factory implements IElementFactory {

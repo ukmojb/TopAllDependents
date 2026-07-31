@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
 @TOPAddon(dependency = "stevescarts")
 public class AddonStevesCarts2 extends AddonBlank {
 
-    private final String[] priorities = {TextFormatting.GREEN + "{*topaddons.stevescarts2:priority_high*}", TextFormatting.GOLD + "{*topaddons.stevescarts2:priority_medium*}", TextFormatting.YELLOW + "{*topaddons.stevescarts2:priority_low*}", TextFormatting.RED + "{*topaddons.stevescarts2:priority_disabled*}"};
+    private final String[] priorities = {TextFormatting.GREEN + Tools.translate("topaddons.stevescarts2:priority_high").getFormattedText(), TextFormatting.GOLD + Tools.translate("topaddons.stevescarts2:priority_medium").getFormattedText(), TextFormatting.YELLOW + Tools.translate("topaddons.stevescarts2:priority_low").getFormattedText(), TextFormatting.RED + Tools.translate("topaddons.stevescarts2:priority_disabled").getFormattedText()};
 
     private boolean showChestsContents = true;
 
@@ -49,7 +49,7 @@ public class AddonStevesCarts2 extends AddonBlank {
         if (tile instanceof TileEntityCartAssembler) {
             TileEntityCartAssembler assembler = (TileEntityCartAssembler) tile;
             if (assembler.getIsAssembling()) {
-                textPrefixed(probeInfo, "{*topaddons.stevescarts2:assembly_time*}", Util.hoursMinsSecsFromTicks(Math.round((assembler.getMaxAssemblingTime() - assembler.getAssemblingTime()) / assembler.getEfficiency()), 'h', 'm', 's'));
+                textPrefixed(probeInfo, Tools.translate("topaddons.stevescarts2:assembly_time").getFormattedText(), Util.hoursMinsSecsFromTicks(Math.round((assembler.getMaxAssemblingTime() - assembler.getAssemblingTime()) / assembler.getEfficiency()), 'h', 'm', 's'));
             }
 
             probeInfo.progress(assembler.getFuelLevel(), assembler.getMaxFuelLevel(), new ProgressStyleTOPAddonGrey().prefix("Fuel: ").suffix("/" + assembler.getMaxFuelLevel()).filledColor(0xFF1BC3F0).alternateFilledColor(0xFF1288A8));
@@ -114,7 +114,7 @@ public class AddonStevesCarts2 extends AddonBlank {
                     Entity passenger = ((EntityMinecartModular) entity).getCartRider();
                     probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).element(new ElementCage(getElementId(player, "steves_cage"), passenger)).text(passenger.getDisplayName().getFormattedText());
                 } else {
-                    probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).item(cage).text("{*topaddons:tank_empty*}");
+                    probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).item(cage).text(Tools.translate("topaddons:tank_empty").getFormattedText());
                 }
             }
 
@@ -138,16 +138,16 @@ public class AddonStevesCarts2 extends AddonBlank {
                     int fuel = engine.getTotalFuel();
                     if (engine instanceof ModuleThermalBase) {
                         if (engine.getCart().drain(FluidRegistry.WATER, 1, false) == 0) {
-                            engineHori.text("{*topaddons.stevescarts2:engine_outofwater*}");
+                            engineHori.text(Tools.translate("topaddons.stevescarts2:engine_outofwater").getFormattedText());
                         } else if (engine.getCart().drain(FluidRegistry.LAVA, 1, false) == 0) {
-                            engineHori.text("{*topaddons.stevescarts2:engine_outoflava*}");
+                            engineHori.text(Tools.translate("topaddons.stevescarts2:engine_outoflava").getFormattedText());
                         } else {
-                            engineHori.text("{*topaddons.stevescarts2:engine_powered*}");
+                            engineHori.text(Tools.translate("topaddons.stevescarts2:engine_powered").getFormattedText());
                         }
                     } else if (engine instanceof ModuleSolarBase) {
-                        engineHori.text(fuel > 0 ? String.valueOf(fuel) : "{*topaddons.stevescarts2:engine_outofpower*}");
+                        engineHori.text(fuel > 0 ? String.valueOf(fuel) : Tools.translate("topaddons.stevescarts2:engine_outofpower").getFormattedText());
                     } else if (engine instanceof ModuleCoalBase) {
-                        engineHori.text(fuel > 0 ? engine.getFuelLevel() + " (" + Util.metricPrefixise(fuel) + ")" : "{*topaddons.stevescarts2:engine_outoffuel*}");
+                        engineHori.text(fuel > 0 ? engine.getFuelLevel() + " (" + Util.metricPrefixise(fuel) + ")" : Tools.translate("topaddons.stevescarts2:engine_outoffuel").getFormattedText());
                     }
 
                     engineHori.text(priorities[engine.getPriority()]);

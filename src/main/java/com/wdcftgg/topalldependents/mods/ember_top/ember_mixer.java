@@ -10,6 +10,7 @@ import teamroots.embers.tileentity.TileEntityMixerTop;
 
 import java.awt.*;
 import java.util.Objects;
+import mcjty.theoneprobe.Tools;
 
 public class ember_mixer implements IProbeInfoProvider {
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
@@ -22,7 +23,7 @@ public class ember_mixer implements IProbeInfoProvider {
             int yellow = Color.yellow.getRGB();
             int white = Color.white.getRGB();
             if (tileEntityMixerTop.capability.getEmber() > 0) {
-                probeInfo.progress(ember, max + 5, new ProgressStyle().prefix("{*power*}" + ":" + ember).suffix("/" + max)
+                probeInfo.progress(ember, max + 5, new ProgressStyle().prefix(Tools.translate("power").getFormattedText() + ":" + ember).suffix("/" + max)
                         .width(110)
                         .numberFormat(NumberFormat.NONE)
                         .borderColor(yellow)

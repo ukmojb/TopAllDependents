@@ -69,10 +69,9 @@ public class TOPHandler {
             theOneProbeImp.registerProvider(new DynamicTreesInfoProvider());
         }
         if (Loader.isModLoaded("thaumcraft")) {
-            TheOneProbe.ELEM_ID_ASPECT = TheOneProbe.theOneProbeImp.registerElementFactory(new AspectElement.Factory());
+            AspectElement.setElementId(theOneProbeImp.registerElementFactory(new AspectElement.Factory()));
             theOneProbeImp.registerProvider(new ThaumHighlightInfoProvider());
             theOneProbeImp.registerProvider(new Smelter());
         }
     }
 }
-

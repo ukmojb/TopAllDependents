@@ -66,22 +66,22 @@ public class AddonOpenComputers extends AddonBlank {
                 }
 
                 if (tile instanceof Charger) {
-                    textPrefixed(probeInfo, "{*topaddons.opencomputers:charge_speed*}", Double.toString(Math.round(100 * ((Charger) tile).chargeSpeed()) / 100D));
+                    textPrefixed(probeInfo, Tools.translate("topaddons.opencomputers:charge_speed").getFormattedText(), Double.toString(Math.round(100 * ((Charger) tile).chargeSpeed()) / 100D));
                 }
 
                 if (((Environment) tile).node().reachability() != Visibility.None) {
-                    textPrefixed(probeInfo, "{*option.oc.address*}", analyzer ? ((Environment) tile).node().address() : ((Environment) tile).node().address().substring(0, 8));
+                    textPrefixed(probeInfo, Tools.translate("option.oc.address").getFormattedText(), analyzer ? ((Environment) tile).node().address() : ((Environment) tile).node().address().substring(0, 8));
                 }
 
                 if (tile instanceof Component) {
-                    textPrefixed(probeInfo, "{*option.oc.componentName*}", ((Component) tile).name());
+                    textPrefixed(probeInfo, Tools.translate("option.oc.componentName").getFormattedText(), ((Component) tile).name());
                 }
 
                 if (tile instanceof Machine) {
                     Machine machine = (Machine) tile;
-                    textPrefixed(probeInfo, "{*topaddons.opencomputers:connected_components*}", machine.componentCount() + "/" + machine.maxComponents());
+                    textPrefixed(probeInfo, Tools.translate("topaddons.opencomputers:connected_components").getFormattedText(), machine.componentCount() + "/" + machine.maxComponents());
                     if (machine.lastError() != null) {
-                        textPrefixed(probeInfo, "{*topaddons.opencomputers:last_error*}", "{*oc:" + machine.lastError() + "*}", TextStyleClass.ERROR);
+                        textPrefixed(probeInfo, Tools.translate("topaddons.opencomputers:last_error").getFormattedText(), Tools.translate("oc:" + machine.lastError()).getFormattedText(), TextStyleClass.ERROR);
                     }
                 }
             }
@@ -103,18 +103,18 @@ public class AddonOpenComputers extends AddonBlank {
         }
 
         if (tile instanceof Waypoint) {
-            textPrefixed(probeInfo, "{*topaddons.opencomputers:label*}", ((Waypoint) tile).label());
+            textPrefixed(probeInfo, Tools.translate("topaddons.opencomputers:label").getFormattedText(), ((Waypoint) tile).label());
         }
 
         if (tile instanceof Raid) {
             Raid raid = (Raid) tile;
             if (!raid.isEmpty()) {
-                textPrefixed(probeInfo, "{*topaddons.opencomputers:raid_space*}", raid.filesystem().get().fileSystem().spaceUsed() + "/" + raid.filesystem().get().fileSystem().spaceTotal() + " bytes");
+                textPrefixed(probeInfo, Tools.translate("topaddons.opencomputers:raid_space").getFormattedText(), raid.filesystem().get().fileSystem().spaceUsed() + "/" + raid.filesystem().get().fileSystem().spaceTotal() + " bytes");
             }
         }
 
         if (tile instanceof Transposer) {
-            textPrefixed(probeInfo, "{*topaddons.opencomputers:side*}", data.getSideHit().getName() + " (" + data.getSideHit().getIndex() + ')');
+            textPrefixed(probeInfo, Tools.translate("topaddons.opencomputers:side").getFormattedText(), data.getSideHit().getName() + " (" + data.getSideHit().getIndex() + ')');
         }
 
         if (tile instanceof Rack) {
@@ -136,14 +136,14 @@ public class AddonOpenComputers extends AddonBlank {
                     final li.cil.oc.api.network.Environment server = rack.getMountable(serverIndex);
                     if (server != null) {
                         IProbeInfo vert = probeInfo.vertical(probeInfo.defaultLayoutStyle().borderColor(0xff448844));
-                        vert.text(TextStyleClass.INFO + "{*topaddons.opencomputers:server*} " + serverIndex);
-                        textPrefixed(vert, "{*option.oc.address*}", analyzer ? server.node().address() : server.node().address().substring(0, 8));
+                        vert.text(TextStyleClass.INFO + Tools.translate("topaddons.opencomputers:server").getFormattedText() + " " + serverIndex);
+                        textPrefixed(vert, Tools.translate("option.oc.address").getFormattedText(), analyzer ? server.node().address() : server.node().address().substring(0, 8));
 
                         if (server.node().host() instanceof Machine) {
                             Machine machine = (Machine) server.node().host();
-                            textPrefixed(vert, "{*topaddons.opencomputers:connected_components*}", machine.componentCount() + "/" + machine.maxComponents());
+                            textPrefixed(vert, Tools.translate("topaddons.opencomputers:connected_components").getFormattedText(), machine.componentCount() + "/" + machine.maxComponents());
                             if (machine.lastError() != null) {
-                                textPrefixed(vert, "{*topaddons.opencomputers:last_error*}", "{*oc:" + machine.lastError() + "*}", TextStyleClass.ERROR);
+                                textPrefixed(vert, Tools.translate("topaddons.opencomputers:last_error").getFormattedText(), Tools.translate("oc:" + machine.lastError()).getFormattedText(), TextStyleClass.ERROR);
                             }
                         }
                     }
@@ -172,7 +172,7 @@ public class AddonOpenComputers extends AddonBlank {
                     probeInfo.text(PROGRESS + "RF: " + ElementProgress.format(drone.globalBuffer(), Config.rfFormat, "RF"));
                 }
 
-                textPrefixed(probeInfo, "{*option.oc.address*}", holdingAnalyzer(player) ? node.address() : node.address().substring(0, 8));
+                textPrefixed(probeInfo, Tools.translate("option.oc.address").getFormattedText(), holdingAnalyzer(player) ? node.address() : node.address().substring(0, 8));
 
                 if (drone.control().tank().tankCount() > 0) {
                     for (int i = 0; i < drone.control().tank().tankCount(); i++) {
@@ -204,7 +204,7 @@ public class AddonOpenComputers extends AddonBlank {
 
                 Machine machine = (Machine) node.host();
                 if (machine.lastError() != null) {
-                    textPrefixed(probeInfo, "{*topaddons.opencomputers:last_error*}", "{*oc:" + machine.lastError() + "*}", TextStyleClass.ERROR);
+                    textPrefixed(probeInfo, Tools.translate("topaddons.opencomputers:last_error").getFormattedText(), Tools.translate("oc:" + machine.lastError()).getFormattedText(), TextStyleClass.ERROR);
                 }
             }
 

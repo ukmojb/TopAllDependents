@@ -54,12 +54,12 @@ public class AddonLycanitesMobs extends AddonBlank {
             if (extendedPlayer.getBeastiary().creatureKnowledgeList.containsKey(info.getName())) {
                 probeInfo.horizontal(new LayoutStyle().alignment(ElementAlignment.ALIGN_CENTER))
                         .icon(new ResourceLocation("theoneprobe", "textures/gui/icons.png"), 0, 16, 16, 16, probeInfo.defaultIconStyle().width(18).height(14).textureWidth(32).textureHeight(32))
-                        .text(TextStyleClass.OK + "{*topaddons.lycanites:discovered*}");
+                        .text(TextStyleClass.OK + Tools.translate("topaddons.lycanites:discovered").getFormattedText());
 
             } else {
                 probeInfo.horizontal(new LayoutStyle().alignment(ElementAlignment.ALIGN_CENTER))
                         .icon(new ResourceLocation("theoneprobe", "textures/gui/icons.png"), 16, 16, 16, 16, probeInfo.defaultIconStyle().width(18).height(14).textureWidth(32).textureHeight(32))
-                        .text(TextStyleClass.WARNING + "{*topaddons.lycanites:undiscovered*} ({*" + GAZER.getTranslationKey() + ".name*})");
+                        .text(TextStyleClass.WARNING + Tools.translate("topaddons.lycanites:undiscovered").getFormattedText() + " (" + Tools.translate(GAZER.getTranslationKey() + ".name").getFormattedText() + ")");
             }
 
             //Taming and summoning info
@@ -67,20 +67,20 @@ public class AddonLycanitesMobs extends AddonBlank {
                 if (creature.getOwner() == null) {
                     if (info.isTameable()) {
                         ItemStack stack = new ItemStack(ObjectManager.getItem(info.getName() + "treat"));
-                        probeInfo.horizontal(new LayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + "{*topaddons.lycanites:tameable*}: ").item(stack).text(stack.getDisplayName());
+                        probeInfo.horizontal(new LayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + Tools.translate("topaddons.lycanites:tameable").getFormattedText() + ": ").item(stack).text(stack.getDisplayName());
                     } else if (info.isSummonable()) {
-                        probeInfo.text(TextStyleClass.LABEL + "{*topaddons.lycanites:summonable*}");
+                        probeInfo.text(TextStyleClass.LABEL + Tools.translate("topaddons.lycanites:summonable").getFormattedText());
                     }
                 } else {
                     if (extendedPlayer.petManager.hasEntry(creature.petEntry)) {
-                        probeInfo.text(TextStyleClass.LABEL + "{*topaddons.lycanites:soulbound*}");
+                        probeInfo.text(TextStyleClass.LABEL + Tools.translate("topaddons.lycanites:soulbound").getFormattedText());
                     }
                 }
             }
 
             //Elemental type on non-elemental creatures
             if (mode == ProbeMode.EXTENDED && !creature.getClass().getPackage().getName().equals("com.lycanitesmobs.elementalmobs.entity")) {
-                textPrefixed(probeInfo, "{*creature.stat.element*}", getElementString(info));
+                textPrefixed(probeInfo, Tools.translate("creature.stat.element").getFormattedText(), getElementString(info));
             }
         }
     }

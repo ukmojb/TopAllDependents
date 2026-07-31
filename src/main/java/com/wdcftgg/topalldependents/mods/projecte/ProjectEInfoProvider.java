@@ -43,12 +43,12 @@ public class ProjectEInfoProvider implements IProbeInfoProvider, IProbeInfoEntit
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, @Nonnull EntityPlayer player, World world, IBlockState blockState, @Nonnull IProbeHitData data) {
         if (!player.isSneaking()) return;
         long emc = getEMC(blockState, world, data.getPos());
-        if (emc > 0) probeInfo.text(TextFormatting.YELLOW + "{*top.projecte.emc*} " + Tools.FORMAT.format(emc));
+        if (emc > 0) probeInfo.text(TextFormatting.YELLOW + Tools.translate("top.projecte.emc").getFormattedText() + " " + Tools.FORMAT.format(emc));
 
         TileEntity tileEntity = world.getTileEntity(data.getPos());
         if (tileEntity instanceof IEmcStorage) {
             IEmcStorage emcStorage = (IEmcStorage) tileEntity;
-            probeInfo.text(TextStyleClass.LABEL + "{*top.projecte.contained_emc*} " + Tools.FORMAT.format(emcStorage.getStoredEmc()));
+            probeInfo.text(TextStyleClass.LABEL + Tools.translate("top.projecte.contained_emc").getFormattedText() + " " + Tools.FORMAT.format(emcStorage.getStoredEmc()));
         }
     }
 
@@ -56,7 +56,7 @@ public class ProjectEInfoProvider implements IProbeInfoProvider, IProbeInfoEntit
     public void addProbeEntityInfo(ProbeMode mode, IProbeInfo probeInfo, @Nonnull EntityPlayer player, World world, Entity entity, IProbeHitEntityData data) {
         if (!player.isSneaking()) return;
         long emc = getEMC(entity);
-        if (emc > 0) probeInfo.text(TextFormatting.YELLOW + "{*top.projecte.emc*} " + Tools.FORMAT.format(emc));
+        if (emc > 0) probeInfo.text(TextFormatting.YELLOW + Tools.translate("top.projecte.emc").getFormattedText() + " " + Tools.FORMAT.format(emc));
     }
 
     private static long getEMC(@Nonnull IBlockState state, @Nonnull World world, @Nonnull BlockPos pos) {

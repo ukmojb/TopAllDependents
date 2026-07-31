@@ -131,7 +131,7 @@ public class AddonBloodMagic extends AddonBlank {
 
         if (tile instanceof IBloodAltar && holdingDivine) {
             IBloodAltar altar = (IBloodAltar) tile;
-            textPrefixed(probeInfo, "{*topaddons.bloodmagic:tier*}", NumeralHelper.toRoman(altar.getTier().toInt()), TextFormatting.RED);
+            textPrefixed(probeInfo, Tools.translate("topaddons.bloodmagic:tier").getFormattedText(), NumeralHelper.toRoman(altar.getTier().toInt()), TextFormatting.RED);
 
             if (altar instanceof TileAltar && holdingSeer) {
                 ItemStack input = ((TileAltar) altar).getStackInSlot(0);
@@ -144,7 +144,7 @@ public class AddonBloodMagic extends AddonBlank {
                         SoulNetwork network = NetworkHelper.getSoulNetwork(binding);
                         addAltarCraftingElement(probeInfo, input, ItemStack.EMPTY, network.getCurrentEssence(), ((ItemBloodOrb) BLOOD_ORB).getOrb(input).getCapacity(), 0, player);
                     } else {
-                        probeInfo.text(TextStyleClass.WARNING + "{*topaddons.bloodmagic:unbound_orb*}");
+                        probeInfo.text(TextStyleClass.WARNING + Tools.translate("topaddons.bloodmagic:unbound_orb").getFormattedText());
                     }
                 } else if (altar.isActive()) {
                     ItemStack result = ((RecipeBloodAltar) ReflectionHelper.getPrivateValue(BloodAltar.class, bloodAltar, "recipe")).getOutput();
@@ -171,8 +171,8 @@ public class AddonBloodMagic extends AddonBlank {
 
         if (tile instanceof TileIncenseAltar && holdingDivine) {
             TileIncenseAltar altar = (TileIncenseAltar) tile;
-            textPrefixed(probeInfo, "{*topaddons.bloodmagic:tranquility*}", Integer.toString((int) ((100D * (int) (100 * altar.tranquility)) / 100D)));
-            textPrefixed(probeInfo, "{*topaddons.bloodmagic:bonus*}", (int) (altar.incenseAddition * 100) + "%");
+            textPrefixed(probeInfo, Tools.translate("topaddons.bloodmagic:tranquility").getFormattedText(), Integer.toString((int) ((100D * (int) (100 * altar.tranquility)) / 100D)));
+            textPrefixed(probeInfo, Tools.translate("topaddons.bloodmagic:bonus").getFormattedText(), (int) (altar.incenseAddition * 100) + "%");
         }
 
 

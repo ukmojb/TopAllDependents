@@ -54,6 +54,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.function.Function;
+import mcjty.theoneprobe.Tools;
 
 @TOPAddon(dependency = "ic2", order = 0)
 public class AddonIndustrialCraft2 extends AddonBlank {
@@ -196,7 +197,7 @@ public class AddonIndustrialCraft2 extends AddonBlank {
 
             //Energy consumption
             if (mode == ProbeMode.EXTENDED) {
-                textPrefixed(probeInfo, "{*topaddons:consumption*}", machine.energyConsume + " EU/t");
+                textPrefixed(probeInfo, Tools.translate("topaddons:consumption").getFormattedText(), machine.energyConsume + " EU/t");
             }
         }
 
@@ -212,7 +213,7 @@ public class AddonIndustrialCraft2 extends AddonBlank {
 
             //Energy consumption
             if (mode == ProbeMode.EXTENDED) {
-                textPrefixed(probeInfo, "{*topaddons:consumption*}", "15 EU/t");
+                textPrefixed(probeInfo, Tools.translate("topaddons:consumption").getFormattedText(), "15 EU/t");
             }
         }
 
@@ -240,30 +241,30 @@ public class AddonIndustrialCraft2 extends AddonBlank {
         if (tile instanceof TileEntityMiner) {
             TileEntityMiner miner = (TileEntityMiner) tile;
             if (miner.drillSlot.isEmpty()) {
-                probeInfo.text(TextStyleClass.ERROR + "{*topaddons.ic2:miner_no_drill*}");
+                probeInfo.text(TextStyleClass.ERROR + Tools.translate("topaddons.ic2:miner_no_drill").getFormattedText());
             } else {
-                probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + "{*topaddons.ic2:miner_drill*}: ").item(miner.drillSlot.get());
+                probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + Tools.translate("topaddons.ic2:miner_drill").getFormattedText() + ": ").item(miner.drillSlot.get());
             }
 
             if (miner.pipeSlot.isEmpty()) {
-                probeInfo.text(TextStyleClass.ERROR + "{*topaddons.ic2:miner_no_pipes*}");
+                probeInfo.text(TextStyleClass.ERROR + Tools.translate("topaddons.ic2:miner_no_pipes").getFormattedText());
             } else {
-                probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + "{*topaddons.ic2:miner_pipes*}: ").item(miner.pipeSlot.get());
+                probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + Tools.translate("topaddons.ic2:miner_pipes").getFormattedText() + ": ").item(miner.pipeSlot.get());
             }
 
             if (miner.scannerSlot.isEmpty()) {
-                textPrefixed(probeInfo, "{*topaddons.ic2:miner_scanner*}", "{*topaddons:none*}");
+                textPrefixed(probeInfo, Tools.translate("topaddons.ic2:miner_scanner").getFormattedText(), Tools.translate("topaddons:none").getFormattedText());
             } else {
-                probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + "{*topaddons.ic2:miner_scanner*}: ").item(miner.scannerSlot.get()).text(miner.scannerSlot.get().getDisplayName());
+                probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + Tools.translate("topaddons.ic2:miner_scanner").getFormattedText() + ": ").item(miner.scannerSlot.get()).text(miner.scannerSlot.get().getDisplayName());
             }
         }
 
         if (tile instanceof TileEntityAdvMiner) {
             TileEntityAdvMiner miner = (TileEntityAdvMiner) tile;
             if (miner.scannerSlot.isEmpty()) {
-                probeInfo.text(TextStyleClass.ERROR + "{*topaddons.ic2:miner_no_scanner*}");
+                probeInfo.text(TextStyleClass.ERROR + Tools.translate("topaddons.ic2:miner_no_scanner").getFormattedText());
             } else {
-                probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + "{*topaddons.ic2:miner_scanner*}: ").item(miner.scannerSlot.get()).text(miner.scannerSlot.get().getDisplayName());
+                probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + Tools.translate("topaddons.ic2:miner_scanner").getFormattedText() + ": ").item(miner.scannerSlot.get()).text(miner.scannerSlot.get().getDisplayName());
             }
         }
 
@@ -276,42 +277,42 @@ public class AddonIndustrialCraft2 extends AddonBlank {
                         .text(tileElectric.getRedstoneMode().replaceFirst(".+:\\s", ""));
             }
             //Maximum EU/t
-            textPrefixed(probeInfo, "{*topaddons.ic2:max_output*}", new DecimalFormat("##.#").format(tileElectric.getOutputEnergyUnitsPerTick()) + " EU/t");
+            textPrefixed(probeInfo, Tools.translate("topaddons.ic2:max_output").getFormattedText(), new DecimalFormat("##.#").format(tileElectric.getOutputEnergyUnitsPerTick()) + " EU/t");
         }
 
         if (tile instanceof IKineticSource) {
-            textPrefixed(probeInfo, "{*topaddons.ic2:buffer*}", new DecimalFormat("##.#").format(((IKineticSource) tile).getConnectionBandwidth(((TileEntityBlock) tile).getFacing())) + " kU");
+            textPrefixed(probeInfo, Tools.translate("topaddons.ic2:buffer").getFormattedText(), new DecimalFormat("##.#").format(((IKineticSource) tile).getConnectionBandwidth(((TileEntityBlock) tile).getFacing())) + " kU");
         }
 
         if (tile instanceof TileEntitySolarGenerator) {
             if (((TileEntitySolarGenerator) tile).skyLight == 0F) {
-                probeInfo.text(TextFormatting.RED + "{*topaddons.ic2:no_sky*}");
+                probeInfo.text(TextFormatting.RED + Tools.translate("topaddons.ic2:no_sky").getFormattedText());
             }
         }
 
         if (tile instanceof TileEntitySolarDestiller) {
             if (TileEntitySolarGenerator.getSkyLight(world, data.getPos()) == 0F) {
-                probeInfo.text(TextFormatting.RED + "{*topaddons.ic2:no_sky*}");
+                probeInfo.text(TextFormatting.RED + Tools.translate("topaddons.ic2:no_sky").getFormattedText());
             }
         }
 
         if (tile instanceof TileEntityTeleporter) {
             BlockPos pos = ((TileEntityTeleporter) tile).getTarget();
-            textPrefixed(probeInfo, "{*topaddons.ic2:destination*}", ((TileEntityTeleporter) tile).hasTarget() ? String.format("%d %d %d", pos.getX(), pos.getY(), pos.getZ()) : "none");
+            textPrefixed(probeInfo, Tools.translate("topaddons.ic2:destination").getFormattedText(), ((TileEntityTeleporter) tile).hasTarget() ? String.format("%d %d %d", pos.getX(), pos.getY(), pos.getZ()) : "none");
         }
 
         if (tile instanceof TileEntityTerra) {
             if (!((TileEntityTerra) tile).tfbpSlot.isEmpty()) {
-                textPrefixed(probeInfo, "{*topaddons.ic2:blueprint*}", ((TileEntityTerra) tile).tfbpSlot.get().getDisplayName().substring(7));
+                textPrefixed(probeInfo, Tools.translate("topaddons.ic2:blueprint").getFormattedText(), ((TileEntityTerra) tile).tfbpSlot.get().getDisplayName().substring(7));
             } else {
-                textPrefixed(probeInfo, "{*topaddons.ic2:blueprint*}", "{*topaddons:none*}");
+                textPrefixed(probeInfo, Tools.translate("topaddons.ic2:blueprint").getFormattedText(), Tools.translate("topaddons:none").getFormattedText());
             }
         }
 
         if (tile instanceof TileEntityHeatSourceInventory) {
-            textPrefixed(probeInfo, "{*topaddons.ic2:transmitting*}", ((TileEntityHeatSourceInventory) tile).gettransmitHeat() + " hU");
-            textPrefixed(probeInfo, "{*topaddons.ic2:buffer*}", ((TileEntityHeatSourceInventory) tile).getHeatBuffer() + " hU");
-            textPrefixed(probeInfo, "{*topaddons.ic2:max_transfer*}", ((TileEntityHeatSourceInventory) tile).getMaxHeatEmittedPerTick() + " hU");
+            textPrefixed(probeInfo, Tools.translate("topaddons.ic2:transmitting").getFormattedText(), ((TileEntityHeatSourceInventory) tile).gettransmitHeat() + " hU");
+            textPrefixed(probeInfo, Tools.translate("topaddons.ic2:buffer").getFormattedText(), ((TileEntityHeatSourceInventory) tile).getHeatBuffer() + " hU");
+            textPrefixed(probeInfo, Tools.translate("topaddons.ic2:max_transfer").getFormattedText(), ((TileEntityHeatSourceInventory) tile).getMaxHeatEmittedPerTick() + " hU");
         }
 
         if (tile instanceof TileEntityFermenter) {
@@ -322,27 +323,27 @@ public class AddonIndustrialCraft2 extends AddonBlank {
 
         if (tile instanceof TileEntityBaseGenerator) {
             if (OUTPUTS.containsKey(tile.getClass())) {
-                textPrefixed(probeInfo, "{*topaddons:generating*}", new DecimalFormat("#.##").format((double) OUTPUTS.get(tile.getClass()).apply((TileEntityBaseGenerator) tile)) + " EU/t");
+                textPrefixed(probeInfo, Tools.translate("topaddons:generating").getFormattedText(), new DecimalFormat("#.##").format((double) OUTPUTS.get(tile.getClass()).apply((TileEntityBaseGenerator) tile)) + " EU/t");
             }
         }
 
         if (tile instanceof TileEntityStirlingGenerator) {
             //EU Production
-            textPrefixed(probeInfo, "{*topaddons:generating*}", ((TileEntityConversionGenerator) tile).getProduction() + " EU/t");
+            textPrefixed(probeInfo, Tools.translate("topaddons:generating").getFormattedText(), ((TileEntityConversionGenerator) tile).getProduction() + " EU/t");
         }
 
         if (tile instanceof TileEntityKineticGenerator) {
             //EU Production
-            textPrefixed(probeInfo, "{*topaddons:generating*}", ((TileEntityKineticGenerator) tile).getProduction() + " EU/t");
+            textPrefixed(probeInfo, Tools.translate("topaddons:generating").getFormattedText(), ((TileEntityKineticGenerator) tile).getProduction() + " EU/t");
         }
 
         if (tile instanceof IReactor || (tile instanceof IReactorChamber && ((IReactorChamber) tile).getReactorInstance() != null)) {
             IReactor reactor = tile instanceof IReactorChamber ? ((IReactorChamber) tile).getReactorInstance() : (IReactor) tile;
 
             if (reactor.isFluidCooled()) {
-                textPrefixed(probeInfo, "{*topaddons.ic2:heat_production*}", new DecimalFormat("#.##").format(((TileEntityNuclearReactorElectric) reactor.getCoreTe()).EmitHeat) + " hU/t");
+                textPrefixed(probeInfo, Tools.translate("topaddons.ic2:heat_production").getFormattedText(), new DecimalFormat("#.##").format(((TileEntityNuclearReactorElectric) reactor.getCoreTe()).EmitHeat) + " hU/t");
             } else {
-                textPrefixed(probeInfo, "{*topaddons:generating*}", new DecimalFormat("#.##").format(reactor.getReactorEUEnergyOutput()) + " EU/t");
+                textPrefixed(probeInfo, Tools.translate("topaddons:generating").getFormattedText(), new DecimalFormat("#.##").format(reactor.getReactorEUEnergyOutput()) + " EU/t");
             }
 
             final float ratio = 1.0F * reactor.getHeat() / reactor.getMaxHeat();
@@ -365,13 +366,13 @@ public class AddonIndustrialCraft2 extends AddonBlank {
         if (tile instanceof TileEntityScanner) {
             TileEntityScanner scanner = (TileEntityScanner) tile;
             if (!scanner.isEmpty()) {
-                textPrefixed(probeInfo, "{*topaddons.ic2:uu_scanning*}", scanner.inputSlot.get().getDisplayName());
+                textPrefixed(probeInfo, Tools.translate("topaddons.ic2:uu_scanning").getFormattedText(), scanner.inputSlot.get().getDisplayName());
                 progressBar(probeInfo, scanner.progress / 33, 0xffaaaaaa, 0xff888888);
             }
         }
 
         if (tile instanceof TileEntityPatternStorage) {
-            textPrefixed(probeInfo, "{*topaddons.ic2:uu_stored_patterns*}", String.valueOf(((TileEntityPatternStorage) tile).getPatterns().size()));
+            textPrefixed(probeInfo, Tools.translate("topaddons.ic2:uu_stored_patterns").getFormattedText(), String.valueOf(((TileEntityPatternStorage) tile).getPatterns().size()));
         }
 
         if (tile instanceof TileEntityReplicator) {
@@ -388,8 +389,8 @@ public class AddonIndustrialCraft2 extends AddonBlank {
                     prefix = 'm';
                 }
 
-                textPrefixed(probeInfo, "{*topaddons.ic2:uu_replicating*}", replicator.pattern.getDisplayName());
-                textPrefixed(probeInfo, "{*topaddons.ic2:mode*}", "{*" + (replicator.getMode() == TileEntityReplicator.Mode.SINGLE ? "ic2.Replicator.gui.info.single" : "ic2.Replicator.gui.info.repeat") + "*}");
+                textPrefixed(probeInfo, Tools.translate("topaddons.ic2:uu_replicating").getFormattedText(), replicator.pattern.getDisplayName());
+                textPrefixed(probeInfo, Tools.translate("topaddons.ic2:mode").getFormattedText(), Tools.translate(replicator.getMode() == TileEntityReplicator.Mode.SINGLE ? "ic2.Replicator.gui.info.single" : "ic2.Replicator.gui.info.repeat").getFormattedText());
                 probeInfo.progress((int) (replicator.uuProcessed * multiplier), (int) (replicator.patternUu * multiplier), probeInfo.defaultProgressStyle().suffix(" " + prefix + 'B'));
                 //TODO micro, milli formatting for bucket and eu
             }
@@ -398,26 +399,26 @@ public class AddonIndustrialCraft2 extends AddonBlank {
         if (tile instanceof TileEntityMatter) {
             TileEntityMatter tileMatter = (TileEntityMatter) tile;
             if (tileMatter.amplificationIsAvailable()) {
-                probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + "{*topaddons.ic2:uu_amplifier*}:").item(tileMatter.amplifierSlot.get());
+                probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER)).text(TextStyleClass.LABEL + Tools.translate("topaddons.ic2:uu_amplifier").getFormattedText() + ":").item(tileMatter.amplifierSlot.get());
             }
         }
 
         if (tile instanceof TileEntityPersonalChest) {
-            textPrefixed(probeInfo, "{*topaddons.ic2:owner*}", ((TileEntityPersonalChest) tile).getOwner() != null ? ((TileEntityPersonalChest) tile).getOwner().getName() : "");
+            textPrefixed(probeInfo, Tools.translate("topaddons.ic2:owner").getFormattedText(), ((TileEntityPersonalChest) tile).getOwner() != null ? ((TileEntityPersonalChest) tile).getOwner().getName() : "");
         }
 
         if (tile instanceof TileEntityFluidDistributor) {
-            probeInfo.text(TextStyleClass.LABEL + "{*ic2.FluidDistributor.gui.mode.info*} " + TextStyleClass.INFO + (((TileEntityFluidDistributor) tile).getActive() ? "{*ic2.FluidDistributor.gui.mode.concentrate*}" : "{*ic2.FluidDistributor.gui.mode.distribute*}"));
+            probeInfo.text(TextStyleClass.LABEL + Tools.translate("ic2.FluidDistributor.gui.mode.info").getFormattedText() + " " + TextStyleClass.INFO + (((TileEntityFluidDistributor) tile).getActive() ? Tools.translate("ic2.FluidDistributor.gui.mode.concentrate").getFormattedText() : Tools.translate("ic2.FluidDistributor.gui.mode.distribute").getFormattedText()));
         }
 
         if (tile instanceof TileEntityFluidRegulator) {
             TileEntityFluidRegulator regulator = (TileEntityFluidRegulator) tile;
-            textPrefixed(probeInfo, "{*topaddons.ic2:mb_rate*}", regulator.getoutputmb() + " mB" + regulator.getmodegui());
+            textPrefixed(probeInfo, Tools.translate("topaddons.ic2:mb_rate").getFormattedText(), regulator.getoutputmb() + " mB" + regulator.getmodegui());
         }
 
         if (tile instanceof TileEntitySteamGenerator) {
             TileEntitySteamGenerator generator = (TileEntitySteamGenerator) tile;
-            textPrefixed(probeInfo, "Output Fluid", "{*" + generator.getOutputFluidName() + "*}");
+            textPrefixed(probeInfo, "Output Fluid", Tools.translate(generator.getOutputFluidName()).getFormattedText());
             textPrefixed(probeInfo, "Output Rate", generator.getOutputMB() + " mB/t");
             probeInfo.progress((int) generator.getCalcification(), 100, probeInfo.defaultProgressStyle()
                     .backgroundColor(0xff007dfd)
@@ -430,7 +431,7 @@ public class AddonIndustrialCraft2 extends AddonBlank {
 
         if (tile instanceof TileEntityMagnetizer) {
             if (!BlockIC2Fence.hasMetalShoes(player)) {
-                probeInfo.text(TextStyleClass.OBSOLETE + "{*ic2.Magnetizer.gui.noMetalShoes*}");
+                probeInfo.text(TextStyleClass.OBSOLETE + Tools.translate("ic2.Magnetizer.gui.noMetalShoes").getFormattedText());
             }
         }
 
@@ -438,9 +439,9 @@ public class AddonIndustrialCraft2 extends AddonBlank {
             if (((TileEntityBlock) tile).hasComponent(Energy.class)) {
                 Energy energy = ((TileEntityBlock) tile).getComponent(Energy.class);
                 if (!energy.getSourceDirs().isEmpty()) {
-                    textPrefixed(probeInfo, "{*topaddons.ic2:power_tier*}", String.valueOf(energy.getSourceTier()));
+                    textPrefixed(probeInfo, Tools.translate("topaddons.ic2:power_tier").getFormattedText(), String.valueOf(energy.getSourceTier()));
                 } else if (!energy.getSinkDirs().isEmpty()) {
-                    textPrefixed(probeInfo, "{*topaddons.ic2:power_tier*}", String.valueOf(energy.getSinkTier()));
+                    textPrefixed(probeInfo, Tools.translate("topaddons.ic2:power_tier").getFormattedText(), String.valueOf(energy.getSinkTier()));
                 }
             }
         }
@@ -448,14 +449,14 @@ public class AddonIndustrialCraft2 extends AddonBlank {
         if (tile instanceof ICropTile) {
             ICropTile crop = (ICropTile) tile;
             if (crop.getCrop() != null) {
-                textPrefixed(probeInfo, "{*topaddons.forestry:maturity*}", TextStyleClass.WARNING + String.valueOf(100 * crop.getCurrentSize() / crop.getCrop().getMaxSize()) + "%");
+                textPrefixed(probeInfo, Tools.translate("topaddons.forestry:maturity").getFormattedText(), TextStyleClass.WARNING + String.valueOf(100 * crop.getCurrentSize() / crop.getCrop().getMaxSize()) + "%");
                 if (hodlingCropnalyzer(player)) {
-                    textPrefixed(probeInfo, "{*topaddons.ic2:crop_nutrient*}", String.format("%d/%d", crop.getStorageNutrients(), 100));
-                    textPrefixed(probeInfo, "{*topaddons.ic2:crop_water*}", String.format("%d/%d", crop.getStorageWater(), 200));
-                    textPrefixed(probeInfo, "{*topaddons.ic2:crop_weedex*}", String.format("%d/%d", crop.getStorageWeedEX(), 100));
-                    textPrefixed(probeInfo, "{*topaddons.ic2:crop_growth*}", String.format("%d/%d", crop.getGrowthPoints(), 300));
+                    textPrefixed(probeInfo, Tools.translate("topaddons.ic2:crop_nutrient").getFormattedText(), String.format("%d/%d", crop.getStorageNutrients(), 100));
+                    textPrefixed(probeInfo, Tools.translate("topaddons.ic2:crop_water").getFormattedText(), String.format("%d/%d", crop.getStorageWater(), 200));
+                    textPrefixed(probeInfo, Tools.translate("topaddons.ic2:crop_weedex").getFormattedText(), String.format("%d/%d", crop.getStorageWeedEX(), 100));
+                    textPrefixed(probeInfo, Tools.translate("topaddons.ic2:crop_growth").getFormattedText(), String.format("%d/%d", crop.getGrowthPoints(), 300));
                 } else if (crop.getScanLevel() > 0) {
-                    textPrefixed(probeInfo, "{*topaddons.ic2:crop_name*}", "{*" + crop.getCrop().getUnlocalizedName() + "*}");
+                    textPrefixed(probeInfo, Tools.translate("topaddons.ic2:crop_name").getFormattedText(), Tools.translate(crop.getCrop().getUnlocalizedName()).getFormattedText());
                     if (crop.getScanLevel() >= 2) {
                         textPrefixed(probeInfo, "Tier", Util.getRomanNumeral(crop.getCrop().getProperties().getTier()));
                     }
@@ -471,7 +472,7 @@ public class AddonIndustrialCraft2 extends AddonBlank {
         if (tile instanceof TileEntityTradeOMat) {
             TileEntityTradeOMat trader = (TileEntityTradeOMat) tile;
             if (trader.getOwner() != null) {
-                textPrefixed(probeInfo, "{*topaddons.ic2:owner*}", trader.getOwner().getName());
+                textPrefixed(probeInfo, Tools.translate("topaddons.ic2:owner").getFormattedText(), trader.getOwner().getName());
             }
         }
     }

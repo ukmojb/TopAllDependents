@@ -63,23 +63,23 @@ public class AddonVanilla extends AddonBlank {
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         TileEntity tile = world.getTileEntity(data.getPos());
         if (tile instanceof TileEntityNote && player.getCapability(TopAllDependents.OPTS_CAP, null).getBoolean("showPitch")) {
-            textPrefixed(probeInfo, "{*topaddons.vanilla:pitch*}", NOTES[((TileEntityNote) tile).note % 12]);
+            textPrefixed(probeInfo, Tools.translate("topaddons.vanilla:pitch").getFormattedText(), NOTES[((TileEntityNote) tile).note % 12]);
 
             Material material = world.getBlockState(data.getPos().down()).getMaterial();
             String instrument;
             if (material == Material.ROCK) {
-                instrument = "{*topaddons.vanilla:rock*}";
+                instrument = Tools.translate("topaddons.vanilla:rock").getFormattedText();
             } else if (material == Material.SAND) {
-                instrument = "{*topaddons.vanilla:sand*}";
+                instrument = Tools.translate("topaddons.vanilla:sand").getFormattedText();
             } else if (material == Material.GLASS) {
-                instrument = "{*topaddons.vanilla:glass*}";
+                instrument = Tools.translate("topaddons.vanilla:glass").getFormattedText();
             } else if (material == Material.WOOD) {
-                instrument = "{*topaddons.vanilla:wood*}";
+                instrument = Tools.translate("topaddons.vanilla:wood").getFormattedText();
             } else {
-                instrument = "{*topaddons.vanilla:else*}";
+                instrument = Tools.translate("topaddons.vanilla:else").getFormattedText();
             }
 
-            textPrefixed(probeInfo, "{*topaddons.vanilla:instrument*}", instrument);
+            textPrefixed(probeInfo, Tools.translate("topaddons.vanilla:instrument").getFormattedText(), instrument);
         }
     }
 
@@ -91,9 +91,9 @@ public class AddonVanilla extends AddonBlank {
                 int mins = age / 1200;
                 int secs = age / 20 - mins * 60;
                 if (age > 0 && breedingCooldown) {
-                    textPrefixed(probeInfo, "{*topaddons.vanilla:nobreed*}", String.format(mins == 0 ? "%d\"" : "%d'%d\"", mins == 0 ? secs : mins, secs));
+                    textPrefixed(probeInfo, Tools.translate("topaddons.vanilla:nobreed").getFormattedText(), String.format(mins == 0 ? "%d\"" : "%d'%d\"", mins == 0 ? secs : mins, secs));
                 } else if (age < 0 && growupTimer) {
-                    textPrefixed(probeInfo, "{*topaddons.vanilla:adultin*}", String.format(mins == 0 ? "%d\"" : "%d'%d\"", mins == 0 ? -secs : -mins, -secs));
+                    textPrefixed(probeInfo, Tools.translate("topaddons.vanilla:adultin").getFormattedText(), String.format(mins == 0 ? "%d\"" : "%d'%d\"", mins == 0 ? -secs : -mins, -secs));
                 }
             }
         }

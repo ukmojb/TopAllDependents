@@ -32,6 +32,7 @@ import java.awt.*;
 import java.text.DecimalFormat;
 
 import static mcjty.theoneprobe.api.TextStyleClass.PROGRESS;
+import mcjty.theoneprobe.Tools;
 
 @TOPAddon(dependency = "advgenerators")
 public class AddonAdvancedGenerators extends AddonBlank {
@@ -60,7 +61,7 @@ public class AddonAdvancedGenerators extends AddonBlank {
 
             if (euOutput && !rfOutput) {
                 AddonIndustrialCraft2.euBar(probeInfo, (int) (controller.power().stored() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")), (int) (controller.power().capacity() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")));
-                textPrefixed(probeInfo, "{*topaddons:generating*}", (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + "/" + (int) ((float) (((DataSlotNumeric) controller.maxMJPerTick()).value()) * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + " EU/t");
+                textPrefixed(probeInfo, Tools.translate("topaddons:generating").getFormattedText(), (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + "/" + (int) ((float) (((DataSlotNumeric) controller.maxMJPerTick()).value()) * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + " EU/t");
             } else {
                 if (Config.getRealConfig().getRFMode() == 1) {
                     probeInfo.progress((int) controller.power().stored(), (int) controller.power().capacity(),
@@ -73,13 +74,13 @@ public class AddonAdvancedGenerators extends AddonBlank {
                 } else {
                     probeInfo.text(PROGRESS + "RF: " + ElementProgress.format((int) controller.power().stored(), Config.rfFormat, "RF"));
                 }
-                textPrefixed(probeInfo, "{*topaddons:generating*}", (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + "/" + (int) ((float) (((DataSlotNumeric) controller.maxMJPerTick()).value()) * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + " RF/t");
+                textPrefixed(probeInfo, Tools.translate("topaddons:generating").getFormattedText(), (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + "/" + (int) ((float) (((DataSlotNumeric) controller.maxMJPerTick()).value()) * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + " RF/t");
             }
-            textPrefixed(probeInfo, "{*topaddons.advgenerators:turbines*}", String.valueOf(((PoweredController) controller).getModuleBlocks(ClassTag$.MODULE$.apply(BlockTurbine.class)).size()));
+            textPrefixed(probeInfo, Tools.translate("topaddons.advgenerators:turbines").getFormattedText(), String.valueOf(((PoweredController) controller).getModuleBlocks(ClassTag$.MODULE$.apply(BlockTurbine.class)).size()));
 
             FluidTankInfo fuel = controller.fuel().getInfo();
             AddonForge.addTankElement(probeInfo, "Fuel", fuel, mode, player);
-            textPrefixed(probeInfo, "{*topaddons:generating*}", new DecimalFormat("#.##").format(controller.fuelPerTickAverage().average()) + "/" + new DecimalFormat("#.##").format(((DataSlotNumeric) controller.fuelPerTick()).value()) + " mB/t");
+            textPrefixed(probeInfo, Tools.translate("topaddons:generating").getFormattedText(), new DecimalFormat("#.##").format(controller.fuelPerTickAverage().average()) + "/" + new DecimalFormat("#.##").format(((DataSlotNumeric) controller.fuelPerTick()).value()) + " mB/t");
         }
 
         if (tile instanceof TileSteamTurbineController) {
@@ -98,7 +99,7 @@ public class AddonAdvancedGenerators extends AddonBlank {
 
             if (euOutput && !rfOutput) {
                 AddonIndustrialCraft2.euBar(probeInfo, (int) (controller.power().stored() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")), (int) (controller.power().capacity() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")));
-                textPrefixed(probeInfo, "{*topaddons:generating*}", (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + "/" + (int) ((double) ((DataSlotNumeric) controller.maxMJPerTick()).value() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + " EU/t");
+                textPrefixed(probeInfo, Tools.translate("topaddons:generating").getFormattedText(), (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + "/" + (int) ((double) ((DataSlotNumeric) controller.maxMJPerTick()).value() * Tuning.getSection("Power").getFloat("EU_MJ_Ratio")) + " EU/t");
             } else {
                 if (Config.getRealConfig().getRFMode() == 1) {
                     probeInfo.progress((int) controller.power().stored(), (int) controller.power().capacity(),
@@ -111,14 +112,14 @@ public class AddonAdvancedGenerators extends AddonBlank {
                 } else {
                     probeInfo.text(PROGRESS + "RF: " + ElementProgress.format((int) controller.power().stored(), Config.rfFormat, "RF"));
                 }
-                textPrefixed(probeInfo, "{*topaddons:generating*}", (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + "/" + (int) ((double) (((DataSlotNumeric) controller.maxMJPerTick()).value()) * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + " RF/t");
+                textPrefixed(probeInfo, Tools.translate("topaddons:generating").getFormattedText(), (int) (controller.outputAverage().average() * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + "/" + (int) ((double) (((DataSlotNumeric) controller.maxMJPerTick()).value()) * Tuning.getSection("Power").getFloat("RF_MJ_Ratio")) + " RF/t");
             }
-            textPrefixed(probeInfo, "{*topaddons.advgenerators:turbines*}", String.valueOf(((PoweredController) controller).getModuleBlocks(ClassTag$.MODULE$.apply(BlockTurbine.class)).size()));
+            textPrefixed(probeInfo, Tools.translate("topaddons.advgenerators:turbines").getFormattedText(), String.valueOf(((PoweredController) controller).getModuleBlocks(ClassTag$.MODULE$.apply(BlockTurbine.class)).size()));
 
             FluidTankInfo fuel = controller.steam().getInfo();
             AddonForge.addTankElement(probeInfo, "Fuel", fuel, mode, player);
-            textPrefixed(probeInfo, "{*topaddons:consumption*}", new DecimalFormat("#.##").format(controller.steamAverage().average()) + " mB/t");
-            textPrefixed(probeInfo, "{*topaddons.advgenerators:speed*}", new DecimalFormat("#").format(((DataSlotNumeric) controller.speed()).value()) + " RPM");
+            textPrefixed(probeInfo, Tools.translate("topaddons:consumption").getFormattedText(), new DecimalFormat("#.##").format(controller.steamAverage().average()) + " mB/t");
+            textPrefixed(probeInfo, Tools.translate("topaddons.advgenerators:speed").getFormattedText(), new DecimalFormat("#").format(((DataSlotNumeric) controller.speed()).value()) + " RPM");
         }
 
         if (tile instanceof TileSyngasController) {
@@ -132,7 +133,7 @@ public class AddonAdvancedGenerators extends AddonBlank {
             IProbeInfo bars = hori.vertical();
             final double deltaHeat = controller.avgHeatDelta().average();
 
-            labels.text(TextStyleClass.LABEL + "{*topaddons.advgenerators:heat*}:");
+            labels.text(TextStyleClass.LABEL + Tools.translate("topaddons.advgenerators:heat").getFormattedText() + ":");
             bars.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(2))
                     .progress((int) Math.round((double) ((DataSlotNumeric) controller.heat()).value()), (int) controller.cfg().maxHeat(), probeInfo.defaultProgressStyle()
                             .filledColor(0xffd62b1e)
@@ -141,7 +142,7 @@ public class AddonAdvancedGenerators extends AddonBlank {
                             .width(63))
                     .text(((deltaHeat > 0D) ? TextFormatting.GREEN : (deltaHeat < 0D) ? TextFormatting.RED : TextFormatting.RESET) + new DecimalFormat("#.##").format(deltaHeat) + " HU/t");
 
-            labels.text(TextStyleClass.LABEL + "{*topaddons.advgenerators:carbon*}:");
+            labels.text(TextStyleClass.LABEL + Tools.translate("topaddons.advgenerators:carbon").getFormattedText() + ":");
             bars.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(2))
                     .progress((int) Math.round(100 * (double) ((DataSlotNumeric) controller.carbonBuffer()).value() / controller.cfg().internalTankCapacity()), 100, probeInfo.defaultProgressStyle()
                             .filledColor(0xff222222)
@@ -157,14 +158,14 @@ public class AddonAdvancedGenerators extends AddonBlank {
                 }
             }
 
-            labels.text(TextStyleClass.LABEL + "{*topaddons.advgenerators:steam*}:");
+            labels.text(TextStyleClass.LABEL + Tools.translate("topaddons.advgenerators:steam").getFormattedText() + ":");
             bars.progress((int) Math.round(100 * (double) ((DataSlotNumeric) controller.steamBuffer()).value() / controller.cfg().internalTankCapacity()), 100, probeInfo.defaultProgressStyle()
                     .filledColor(0xffdddddd)
                     .alternateFilledColor(0xffdddddd)
                     .suffix("%")
                     .width(63));
 
-            textPrefixed(probeInfo, "{*topaddons.advgenerators:production*}", new DecimalFormat("#.##").format(controller.avgSyngasProduced().average()) + " mB/t");
+            textPrefixed(probeInfo, Tools.translate("topaddons.advgenerators:production").getFormattedText(), new DecimalFormat("#.##").format(controller.avgSyngasProduced().average()) + " mB/t");
 
         }
 
@@ -173,7 +174,7 @@ public class AddonAdvancedGenerators extends AddonBlank {
 
             final double deltaHeat = controller.heatLoss().average();
             probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER).spacing(2))
-                    .text(TextStyleClass.LABEL + "{*topaddons.advgenerators:heat*}:")
+                    .text(TextStyleClass.LABEL + Tools.translate("topaddons.advgenerators:heat").getFormattedText() + ":")
                     .progress((int) Math.round((double) ((DataSlotNumeric) controller.heat()).value()), (int) controller.cfg().maxHeat(), probeInfo.defaultProgressStyle()
                             .filledColor(0xffd62b1e)
                             .alternateFilledColor(0xffd62b1e)
@@ -181,9 +182,9 @@ public class AddonAdvancedGenerators extends AddonBlank {
                             .width(70))
                     .text(new DecimalFormat("-#.##").format(deltaHeat) + " HU/t");
 
-            textPrefixed(probeInfo, "{*topaddons.advgenerators:max_heat_transfer*}", new DecimalFormat("#.##").format(((DataSlotNumeric) controller.maxHeatTransfer()).value()) + " HU");
-            textPrefixed(probeInfo, "{*topaddons.advgenerators:fluid_consumption*}", new DecimalFormat("#.##").format(controller.inputRate().average()) + " mB/t");
-            textPrefixed(probeInfo, "{*topaddons.advgenerators:fluid_production*}", new DecimalFormat("#.##").format(controller.outputRate().average()) + " mB/t");
+            textPrefixed(probeInfo, Tools.translate("topaddons.advgenerators:max_heat_transfer").getFormattedText(), new DecimalFormat("#.##").format(((DataSlotNumeric) controller.maxHeatTransfer()).value()) + " HU");
+            textPrefixed(probeInfo, Tools.translate("topaddons.advgenerators:fluid_consumption").getFormattedText(), new DecimalFormat("#.##").format(controller.inputRate().average()) + " mB/t");
+            textPrefixed(probeInfo, Tools.translate("topaddons.advgenerators:fluid_production").getFormattedText(), new DecimalFormat("#.##").format(controller.outputRate().average()) + " mB/t");
         }
 
         if (TopAllDependents.ic2Loaded) AdvGensXIC2.euOutputInfo(probeInfo, tile);

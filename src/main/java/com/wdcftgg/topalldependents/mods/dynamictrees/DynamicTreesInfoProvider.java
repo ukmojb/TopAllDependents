@@ -16,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
+import mcjty.theoneprobe.Tools;
 
 public class DynamicTreesInfoProvider implements IProbeInfoProvider {
 
@@ -29,11 +30,11 @@ public class DynamicTreesInfoProvider implements IProbeInfoProvider {
         Block block = blockState.getBlock();
         if (block instanceof BlockRooty) {
             int life = ((BlockRooty) block).getSoilLife(blockState, world, data.getPos());
-            probeInfo.text(TextStyleClass.LABEL + "{*top.dynamic_trees.soil_life*} " + TextStyleClass.INFO + Math.floor(life * 100.0F / 15.0F) + "%");
+            probeInfo.text(TextStyleClass.LABEL + Tools.translate("top.dynamic_trees.soil_life").getFormattedText() + " " + TextStyleClass.INFO + Math.floor(life * 100.0F / 15.0F) + "%");
         } else if (block instanceof BlockBranch || block instanceof BlockTrunkShell) {
             Species species = TreeHelper.getBestGuessSpecies(world, data.getPos());
             if (species != Species.NULLSPECIES) {
-                probeInfo.text(TextStyleClass.LABEL + "{*top.dynamic_trees.species*} " + TextStyleClass.INFO + species.getLocalizedName());
+                probeInfo.text(TextStyleClass.LABEL + Tools.translate("top.dynamic_trees.species").getFormattedText() + " " + TextStyleClass.INFO + species.getLocalizedName());
 
                 IProbeInfo horizontalPane = probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER));
                 horizontalPane.item(species.getSeedStack(1));

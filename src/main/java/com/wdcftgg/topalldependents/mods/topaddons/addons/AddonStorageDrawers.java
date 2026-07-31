@@ -12,6 +12,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import mcjty.theoneprobe.Tools;
 
 @TOPAddon(dependency = "storagedrawers")
 public class AddonStorageDrawers extends AddonBlank {
@@ -32,7 +33,7 @@ public class AddonStorageDrawers extends AddonBlank {
             TileEntityDrawers tile = (TileEntityDrawers) world.getTileEntity(data.getPos());
 
             if (tile.getDrawerAttributes().isConcealed()) {
-                probeInfo.text(TextStyleClass.LABEL + "{*topaddons.storage_drawers:shrouded*}");
+                probeInfo.text(TextStyleClass.LABEL + Tools.translate("topaddons.storage_drawers:shrouded").getFormattedText());
                 return;
             }
 
@@ -71,9 +72,9 @@ public class AddonStorageDrawers extends AddonBlank {
                     }
                 }
 
-                textPrefixed(probeInfo, "{*storagedrawers.waila.config.displayStackLimit*}", tile.getDrawerAttributes().isUnlimitedStorage() ? "\u221e" : tile.getDrawerCapacity() * tile.upgrades().getStorageMultiplier() + " (x" + tile.upgrades().getStorageMultiplier() + ")");
+                textPrefixed(probeInfo, Tools.translate("storagedrawers.waila.config.displayStackLimit").getFormattedText(), tile.getDrawerAttributes().isUnlimitedStorage() ? "\u221e" : tile.getDrawerCapacity() * tile.upgrades().getStorageMultiplier() + " (x" + tile.upgrades().getStorageMultiplier() + ")");
                 if (tile.getOwner() != null && tile.getOwner().compareTo(player.getUniqueID()) != 0) {
-                    probeInfo.text(TextStyleClass.ERROR + "{*storagedrawers.waila.protected*}");
+                    probeInfo.text(TextStyleClass.ERROR + Tools.translate("storagedrawers.waila.protected").getFormattedText());
                 }
             }
         }

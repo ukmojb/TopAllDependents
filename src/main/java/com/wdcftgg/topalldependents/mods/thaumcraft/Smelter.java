@@ -73,10 +73,10 @@ public class Smelter implements IProbeInfoProvider {
                 smeltableAmount += baseBurnTime * Math.max(1, fuel.getCount()) / itemSmeltDuration;
 
                 if (smeltableAmount > 0.0F) {
-                    horizontalPane.text(TextStyleClass.LABEL + " {*top.furnace_fuel*} " + TextStyleClass.OK + Tools.FORMAT.format(smeltableAmount) + TextStyleClass.LABEL + " {*top.items*}");
+                    horizontalPane.text(TextStyleClass.LABEL + " " + Tools.translate("top.furnace_fuel").getFormattedText() + " " + TextStyleClass.OK + Tools.FORMAT.format(smeltableAmount) + TextStyleClass.LABEL + " " + Tools.translate("top.items").getFormattedText());
                 }
             } else if (!input.isEmpty()) {
-                horizontalPane.text(TextStyleClass.WARNING + "{*top.no_fuel*}");
+                horizontalPane.text(TextStyleClass.WARNING + Tools.translate("top.no_fuel").getFormattedText());
             }
         }
     }

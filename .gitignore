@@ -17,6 +17,11 @@ out
 build
 .gradle
 
+# kate
+*.kate-swp
+
 # other
 eclipse
 run
+docs/
+CHANGELOG.md

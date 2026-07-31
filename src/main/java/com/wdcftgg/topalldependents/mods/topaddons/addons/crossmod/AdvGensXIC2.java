@@ -8,6 +8,7 @@ import net.bdew.lib.multiblock.block.BlockOutput;
 import net.minecraft.tileentity.TileEntity;
 
 import java.text.DecimalFormat;
+import mcjty.theoneprobe.Tools;
 
 public final class AdvGensXIC2 {
 
@@ -18,7 +19,7 @@ public final class AdvGensXIC2 {
 
     public static void euOutputInfo(IProbeInfo probeInfo, TileEntity tile) {
         if (tile instanceof TileEuOutputBase) {
-            AddonBlank.textPrefixed(probeInfo, "{*topaddons.advgenerators:max_output*}", new DecimalFormat("#.##").format(((TileEuOutputBase) tile).maxOutput()) + " EU/t");
+            AddonBlank.textPrefixed(probeInfo, Tools.translate("topaddons.advgenerators:max_output").getFormattedText(), new DecimalFormat("#.##").format(((TileEuOutputBase) tile).maxOutput()) + " EU/t");
         }
     }
 }
