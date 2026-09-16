@@ -149,7 +149,9 @@ public class AddonBloodMagic extends AddonBlank {
                 } else if (altar.isActive()) {
                     ItemStack result = ((RecipeBloodAltar) ReflectionHelper.getPrivateValue(BloodAltar.class, bloodAltar, "recipe")).getOutput();
                     if (!result.isEmpty()) {
-                        addAltarCraftingElement(probeInfo, input, result, bloodAltar.getProgress(), bloodAltar.getLiquidRequired(), bloodAltar.getConsumptionRate(), player);
+                        // 增加速度符文的修正
+                        float consumption = (int) (bloodAltar.getConsumptionRate() * (1 + bloodAltar.getConsumptionMultiplier()));
+                        addAltarCraftingElement(probeInfo, input, result, bloodAltar.getProgress(), bloodAltar.getLiquidRequired(), consumption, player);
                     }
                 }
             }
