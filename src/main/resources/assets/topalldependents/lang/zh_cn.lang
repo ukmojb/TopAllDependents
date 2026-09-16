@@ -21,6 +21,10 @@ topaddons.config:vanilla_growup_timer=显示动物生长所需时间
 topaddons.config:vanilla_growup_timer.tooltip=当潜行或手持喂养物品时显示动物长大所需时间
 topaddons.config:stevescarts_chest_contents=显示矿车内的库存
 topaddons.config:stevescarts_chest_contents.tooltip=显示所有箱子模块内的物品
+topaddons.config:storagedrawers_extended=替换抽屉的扩展信息
+topaddons.config:storagedrawers_extended.tooltip=替换储物抽屉默认的扩展信息
+topaddons.config:storagedrawers_always_extended=始终显示抽屉扩展信息
+topaddons.config:storagedrawers_always_extended.tooltip=无需按住 Shift 即可显示储物抽屉的物品组、堆数和容量上限
 
 topaddons:generating=发电量
 topaddons:consumption=耗电量

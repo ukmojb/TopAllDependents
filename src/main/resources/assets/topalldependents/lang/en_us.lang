@@ -27,6 +27,8 @@ topaddons.config:stevescarts_chest_contents=Show cart inventory
 topaddons.config:stevescarts_chest_contents.tooltip=Show contents of all chest modules
 topaddons.config:storagedrawers_extended=Replace extended info
 topaddons.config:storagedrawers_extended.tooltip=Replace default extended info on storage drawers
+topaddons.config:storagedrawers_always_extended=Always show extended info
+topaddons.config:storagedrawers_always_extended.tooltip=Show Storage Drawers item groups, stack counts and capacity without sneaking
 
 topaddons:generating=Generating
 topaddons:consumption=Consumption

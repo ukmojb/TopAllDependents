@@ -21,10 +21,12 @@ public class AddonStorageDrawers extends AddonBlank {
     private static final Item PROBE = null;
 
     private boolean replaceDrawers = true;
+    private boolean alwaysShowExtendedInfo = false;
 
     @Override
     public void updateConfigs(Configuration config) {
         replaceDrawers = config.get("storagedrawers", "replaceDrawers", true, "Replace Storage Drawers default extended info.").setLanguageKey("topaddons.config:storagedrawers_extended").getBoolean();
+        alwaysShowExtendedInfo = config.get("storagedrawers", "alwaysShowExtendedInfo", false, "Show Storage Drawers extended info without sneaking.").setLanguageKey("topaddons.config:storagedrawers_always_extended").getBoolean();
     }
 
     @Override
@@ -38,7 +40,7 @@ public class AddonStorageDrawers extends AddonBlank {
             }
 
 
-            if (mode == ProbeMode.EXTENDED && replaceDrawers) {
+            if (replaceDrawers && (mode == ProbeMode.EXTENDED || alwaysShowExtendedInfo)) {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 for (int i = 0; i < tile.getGroup().getDrawerCount(); i++) {
                     ItemStack stack = tile.getGroup().getDrawer(i).getStoredItemPrototype().copy();
@@ -86,7 +88,9 @@ public class AddonStorageDrawers extends AddonBlank {
     public void getProbeConfig(IProbeConfig config, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         if (world.getTileEntity(data.getPos()) instanceof TileEntityDrawers) {
             final boolean probeInMain = player.getHeldItemMainhand().getItem() == PROBE;
-            if (replaceDrawers && player.isSneaking() && !(Config.needsProbe == Config.PROBE_NEEDEDFOREXTENDED && !probeInMain) || Config.extendedInMain && probeInMain) {
+            boolean useCustomInfo = replaceDrawers && (alwaysShowExtendedInfo
+                    || player.isSneaking() && !(Config.needsProbe == Config.PROBE_NEEDEDFOREXTENDED && !probeInMain));
+            if (useCustomInfo || Config.extendedInMain && probeInMain) {
                 config.showChestContents(IProbeConfig.ConfigMode.NOT);
             } else {
                 config.showChestContents(IProbeConfig.ConfigMode.EXTENDED);
