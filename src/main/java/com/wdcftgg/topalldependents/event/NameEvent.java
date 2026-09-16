@@ -26,15 +26,6 @@ public class NameEvent {
                 }
             }
 
-            if (Loader.isModLoaded("chickens") && entity instanceof EntityChickensChicken) {
-                EntityChickensChicken chicken = (EntityChickensChicken) entity;
-                NBTTagCompound chickenData = new NBTTagCompound();
-                chicken.writeEntityToNBT(chickenData);
-                ChickensRegistryItem chickenDescription = ChickensRegistry.getByRegistryName(chickenData.getString("Type"));
-                if (chickenDescription != null) {
-                    event.setSpacialName(chickenDescription.getEntityName());
-                }
-            }
         }
     }
 }
