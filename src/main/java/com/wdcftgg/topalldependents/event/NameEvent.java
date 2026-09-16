@@ -4,10 +4,8 @@ import mcjty.theoneprobe.compat.event.SpecialNameEvent;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.shadowmage.ancientwarfare.npc.entity.NpcBase;
-import net.shadowmage.ancientwarfare.npc.entity.NpcPlayerOwned;
 
 @Mod.EventBusSubscriber
 public class NameEvent {

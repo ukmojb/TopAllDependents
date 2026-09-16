@@ -4,6 +4,7 @@ import com.wdcftgg.topalldependents.TopAllDependents;
 import com.wdcftgg.topalldependents.mods.topaddons.addons.crossmod.AdvGensXIC2;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.Colors;
+import mcjty.theoneprobe.Tools;
 import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.apiimpl.elements.ElementProgress;
 import mcjty.theoneprobe.config.Config;
@@ -32,7 +33,6 @@ import java.awt.*;
 import java.text.DecimalFormat;
 
 import static mcjty.theoneprobe.api.TextStyleClass.PROGRESS;
-import mcjty.theoneprobe.Tools;
 
 @TOPAddon(dependency = "advgenerators")
 public class AddonAdvancedGenerators extends AddonBlank {

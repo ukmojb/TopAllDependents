@@ -35,6 +35,7 @@ import ic2.core.item.armor.ItemArmorQuantumSuit;
 import ic2.core.item.armor.ItemArmorSolarHelmet;
 import ic2.core.ref.ItemName;
 import ic2.core.util.ConfigUtil;
+import mcjty.theoneprobe.Tools;
 import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.config.Config;
 import net.minecraft.block.state.IBlockState;
@@ -54,7 +55,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.function.Function;
-import mcjty.theoneprobe.Tools;
 
 @TOPAddon(dependency = "ic2", order = 0)
 public class AddonIndustrialCraft2 extends AddonBlank {

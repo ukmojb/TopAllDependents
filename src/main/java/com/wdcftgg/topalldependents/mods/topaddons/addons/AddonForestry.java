@@ -44,6 +44,7 @@ import forestry.factory.tiles.TileMoistener;
 import forestry.factory.tiles.TileRaintank;
 import forestry.factory.tiles.TileStill;
 import forestry.farming.tiles.TileFarm;
+import mcjty.theoneprobe.Tools;
 import mcjty.theoneprobe.api.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -63,7 +64,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import mcjty.theoneprobe.Tools;
 
 @TOPAddon(dependency = "forestry")
 public class AddonForestry extends AddonBlank {

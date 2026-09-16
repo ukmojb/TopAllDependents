@@ -2,6 +2,7 @@ package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
 import com.jaquadro.minecraft.storagedrawers.block.tile.TileEntityDrawers;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
+import mcjty.theoneprobe.Tools;
 import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.config.Config;
 import net.minecraft.block.state.IBlockState;
@@ -12,7 +13,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import mcjty.theoneprobe.Tools;
 
 @TOPAddon(dependency = "storagedrawers")
 public class AddonStorageDrawers extends AddonBlank {
@@ -34,6 +34,7 @@ public class AddonStorageDrawers extends AddonBlank {
         if (world.getTileEntity(data.getPos()) instanceof TileEntityDrawers) {
             TileEntityDrawers tile = (TileEntityDrawers) world.getTileEntity(data.getPos());
 
+            if (tile == null) return;
             if (tile.getDrawerAttributes().isConcealed()) {
                 probeInfo.text(TextStyleClass.LABEL + Tools.translate("topaddons.storage_drawers:shrouded").getFormattedText());
                 return;
@@ -50,7 +51,7 @@ public class AddonStorageDrawers extends AddonBlank {
                     }
                 }
 
-                if (stacks.size() > 0) {
+                if (!stacks.isEmpty()) {
                     IProbeInfo vertical = probeInfo.vertical(probeInfo.defaultLayoutStyle().borderColor(Config.chestContentsBorderColor).spacing(0));
                     for (ItemStack stack : stacks) {
                         if (tile.getDrawerAttributes().isUnlimitedVending()) {

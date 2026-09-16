@@ -1,5 +1,6 @@
 package com.wdcftgg.topalldependents.mods.ember_top;
 
+import mcjty.theoneprobe.Tools;
 import mcjty.theoneprobe.api.*;
 import mcjty.theoneprobe.apiimpl.styles.ProgressStyle;
 import net.minecraft.block.state.IBlockState;
@@ -10,7 +11,6 @@ import teamroots.embers.tileentity.TileEntityMixerTop;
 
 import java.awt.*;
 import java.util.Objects;
-import mcjty.theoneprobe.Tools;
 
 public class ember_mixer implements IProbeInfoProvider {
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
