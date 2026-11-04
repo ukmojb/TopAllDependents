@@ -1,6 +1,7 @@
 package com.wdcftgg.topalldependents.mods.topaddons.addons;
 
 import com.wdcftgg.topalldependents.TopAllDependents;
+import com.wdcftgg.topalldependents.mods.topaddons.TOPAddons;
 import com.wdcftgg.topalldependents.mods.topaddons.api.TOPAddon;
 import com.wdcftgg.topalldependents.mods.topaddons.elements.ElementTankGauge;
 import com.wdcftgg.topalldependents.mods.topaddons.reference.Colors;
@@ -15,6 +16,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
@@ -62,7 +64,6 @@ public class AddonForge extends AddonBlank {
         if (!showTOPAddonsTank(player))
             return;
 
-        /* Disable for enderio, endertanks */
         String modid = ForgeRegistries.BLOCKS.getKey(blockState.getBlock()).getNamespace();
         if (modid.equals("enderio") || modid.equals("endertanks"))
             return;
@@ -70,23 +71,39 @@ public class AddonForge extends AddonBlank {
         TileEntity tile = world.getTileEntity(data.getPos());
 
         if (tile != null && tile.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)) {
-            IFluidHandler capability = tile.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
+            Object capability = tile.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
+            if (!(capability instanceof IFluidHandler)) {
+                String capabilityType = capability == null ? "null" : capability.getClass().getName();
+                TOPAddons.LOGGER.error("Fluid capability for {} returned {}, expected {}",
+                        tile.getClass().getName(), capabilityType, IFluidHandler.class.getName());
+                return;
+            }
+            IFluidHandler fluidHandler = (IFluidHandler) capability;
             IFluidTankProperties[] tanks;
             try {
-                tanks = capability.getTankProperties();
-            } catch (NullPointerException ignored) {
+                tanks = fluidHandler.getTankProperties();
+            } catch (NullPointerException exception) {
+                TOPAddons.LOGGER.error("Failed to read fluid tank properties for " + tile.getClass().getName(), exception);
+                return;
+            }
+            if (tanks == null) {
                 return;
             }
 
             for (int i = 0; i < tanks.length; i++) {
                 IFluidTankProperties tank = tanks[i];
+                if (tank == null) {
+                    continue;
+                }
                 String tankName = "Tank";
-                if (Names.tankNamesMap.containsKey(tile.getClass())) {
-                    tankName = Names.tankNamesMap.get(tile.getClass())[i];
+                String[] tankNames = Names.tankNamesMap.get(tile.getClass());
+                if (tankNames != null && i < tankNames.length) {
+                    tankName = tankNames[i];
                 }
 
-                if (tank.getContents() != null) {
-                    addTankElement(probeInfo, tankName, tank.getContents().getFluid().getLocalizedName(tank.getContents()), tank.getContents().amount, tank.getCapacity(), "mB", Colors.getHashFromFluid(tank), mode, player);
+                FluidStack contents = tank.getContents();
+                if (contents != null) {
+                    addTankElement(probeInfo, tankName, contents.getFluid().getLocalizedName(contents), contents.amount, tank.getCapacity(), "mB", Colors.getHashFromFluid(contents), mode, player);
                 } else {
                     addTankElement(probeInfo, tankName, "", 0, 0, "", 0xff777777, mode, player);
                 }

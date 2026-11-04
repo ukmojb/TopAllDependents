@@ -187,3 +187,14 @@ top.apotheosis.requires_redstone=Requires Redstone
 # projecte
 top.projecte.emc=EMC:
 top.projecte.contained_emc=Contained EMC:
+
+topaddons.magic:aura=Aura
+topaddons.magic:aura_storage=Aura storage
+topaddons.magic:starlight=Starlight
+topaddons.magic:starlight_storage=Starlight storage
+topaddons.magic:constellation=Constellation
+topaddons.magic:active_constellations=Active constellations
+topaddons.magic:none=None
+topaddons.magic:demon_will=Demon Will
+topaddons.magic:life_essence=Life Essence
+topaddons.magic:mana=Mana

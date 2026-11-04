@@ -16,9 +16,6 @@ import thaumcraft.api.items.IGogglesDisplayExtended;
 import thaumcraft.common.lib.utils.EntityUtils;
 import thaumcraft.common.tiles.devices.TileArcaneEar;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ThaumHighlightInfoProvider implements IProbeInfoProvider {
 
     @Override
@@ -53,29 +50,21 @@ public class ThaumHighlightInfoProvider implements IProbeInfoProvider {
         if (tile instanceof IAspectContainer) {
             AspectList aspects = ((IAspectContainer)tile).getAspects();
             if (aspects != null && aspects.size() > 0) {
-                List<Aspect> aspectList = new ArrayList<>();
-                for (Aspect aspect : aspects.getAspectsSortedByName()) {
+                Aspect[] aspectList = aspects.getAspectsSortedByName();
+                for (int start = 0; start < aspectList.length; start += 5) {
+                    int end = Math.min(start + 5, aspectList.length);
+                    int spacing = 0;
+                    for (int index = start; index < end; index++) {
+                        spacing = Math.max(spacing, 5 + String.valueOf(aspects.getAmount(aspectList[index])).length());
+                    }
 
-                    if (aspectList.size() < 5) {
-                        aspectList.add(aspect);
-                    } else {
+                    IProbeInfo aspectInfo = probeInfo.horizontal(probeInfo.defaultLayoutStyle()
+                            .alignment(ElementAlignment.ALIGN_TOPLEFT)
+                            .spacing(spacing));
 
-                        int space = 0;
-
-                        for (Aspect aspect1 : aspectList) {
-                            space = Math.max(space, 5 + String.valueOf(aspects.getAmount(aspect1)).length());
-                        }
-
-                        IProbeInfo aspectInfo = probeInfo.horizontal(probeInfo.defaultLayoutStyle()
-                                .alignment(ElementAlignment.ALIGN_TOPLEFT)
-                                .spacing(space));
-
-                        for (Aspect aspect1 : aspectList) {
-                            aspectInfo.element(new AspectElement(aspect1, aspects.getAmount(aspect1)));
-                        }
-
-                        aspectList.clear();
-
+                    for (int index = start; index < end; index++) {
+                        Aspect aspect = aspectList[index];
+                        aspectInfo.element(new AspectElement(aspect, aspects.getAmount(aspect)));
                     }
                 }
             }

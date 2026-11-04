@@ -2,51 +2,48 @@ package com.wdcftgg.topalldependents.mods.botania;
 
 
 import com.wdcftgg.topalldependents.config.Config;
-import mcjty.theoneprobe.api.*;
+import mcjty.theoneprobe.api.IProbeHitData;
+import mcjty.theoneprobe.api.IProbeInfo;
+import mcjty.theoneprobe.api.IProbeInfoProvider;
+import mcjty.theoneprobe.api.IProgressStyle;
+import mcjty.theoneprobe.api.NumberFormat;
+import mcjty.theoneprobe.api.ProbeMode;
 import mcjty.theoneprobe.apiimpl.styles.ProgressStyle;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import vazkii.botania.common.block.tile.mana.TilePool;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class ManaPool implements IProbeInfoProvider {
 
     @Override
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
-        if (world.getTileEntity(data.getPos()) instanceof TilePool) {
-            TilePool tile = (TilePool) world.getTileEntity(data.getPos());
+        Object tile = world.getTileEntity(data.getPos());
+        if (tile instanceof TilePool) {
+            TilePool pool = (TilePool) tile;
+            addManaInfo(probeInfo, pool.getCurrentMana(), pool.manaCap);
+        }
+    }
 
-            final int mana = (int) tile.getCurrentMana();
-            final int manamax = (int) tile.manaCap;
-            int light_bule = new Color(39, 255, 247).getRGB();
-            int gray = Color.gray.getRGB();
-            int white = Color.white.getRGB();
-            if (Config.showBotaniaprogress) {
-                if (Config.textinprogress) {
-                    probeInfo.progress(mana, manamax, new ProgressStyle()
-                            .prefix("Mana" + ":" + mana).suffix("/" + manamax)
-                            .width(110)
-                            .numberFormat(NumberFormat.NONE)
-                            .borderColor(white)
-                            .backgroundColor(gray)
-                            .filledColor(light_bule)
-                            .alternateFilledColor(light_bule));
-                } else {
-                    probeInfo.progress(mana, manamax, new ProgressStyle()
-                            .width(110)
-                            .numberFormat(NumberFormat.NONE)
-                            .borderColor(white)
-                            .backgroundColor(gray)
-                            .filledColor(light_bule)
-                            .alternateFilledColor(light_bule));
-                    probeInfo.text("Mana:" + mana + "/" + manamax);
-                }
-
-            } else {
-                probeInfo.text("Mana:" + mana + "/" + manamax);
+    public static void addManaInfo(IProbeInfo probeInfo, int mana, int capacity) {
+        if (Config.showBotaniaprogress) {
+            int manaColor = new Color(39, 255, 247).getRGB();
+            IProgressStyle style = new ProgressStyle()
+                    .width(110)
+                    .numberFormat(NumberFormat.NONE)
+                    .borderColor(Color.white.getRGB())
+                    .backgroundColor(Color.gray.getRGB())
+                    .filledColor(manaColor)
+                    .alternateFilledColor(manaColor);
+            if (Config.textinprogress) {
+                style.prefix("Mana:" + mana).suffix("/" + capacity);
             }
+            probeInfo.progress(mana, capacity, style);
+        }
+        if (!Config.showBotaniaprogress || !Config.textinprogress) {
+            probeInfo.text("Mana:" + mana + "/" + capacity);
         }
     }
 

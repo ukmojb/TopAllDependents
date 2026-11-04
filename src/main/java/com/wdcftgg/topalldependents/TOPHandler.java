@@ -14,6 +14,14 @@ import com.wdcftgg.topalldependents.mods.projecte.ProjectEInfoProvider;
 import com.wdcftgg.topalldependents.mods.thaumcraft.AspectElement;
 import com.wdcftgg.topalldependents.mods.thaumcraft.Smelter;
 import com.wdcftgg.topalldependents.mods.thaumcraft.ThaumHighlightInfoProvider;
+import com.wdcftgg.topalldependents.mods.gugu.GuguUtilsAuraInfoProvider;
+import com.wdcftgg.topalldependents.mods.gugu.GuguUtilsInfoProvider;
+import com.wdcftgg.topalldependents.mods.gugu.GuguUtilsManaInfoProvider;
+import com.wdcftgg.topalldependents.mods.modularmachinery.ModularMachineryAspectInfoProvider;
+import com.wdcftgg.topalldependents.mods.modularmachinery.ModularMachineryBloodMagicInfoProvider;
+import com.wdcftgg.topalldependents.mods.modularmachinery.ModularMachineryAuraInfoProvider;
+import com.wdcftgg.topalldependents.mods.modularmachinery.ModularMachineryInfoProvider;
+import com.wdcftgg.topalldependents.mods.modularmachinery.ModularMachineryManaInfoProvider;
 import mcjty.theoneprobe.TheOneProbe;
 import mcjty.theoneprobe.apiimpl.TheOneProbeImp;
 import net.minecraftforge.fml.common.Loader;
@@ -68,10 +76,38 @@ public class TOPHandler {
         if (Loader.isModLoaded("dynamictrees")) {
             theOneProbeImp.registerProvider(new DynamicTreesInfoProvider());
         }
+        if (Loader.isModLoaded("modularmachinery")) {
+            if (Loader.isModLoaded("botania")) {
+                theOneProbeImp.registerProvider(new ModularMachineryManaInfoProvider());
+            }
+            if (Loader.isModLoaded("astralsorcery")) {
+                theOneProbeImp.registerProvider(new ModularMachineryInfoProvider());
+            }
+            if (Loader.isModLoaded("naturesaura")) {
+                theOneProbeImp.registerProvider(new ModularMachineryAuraInfoProvider());
+            }
+            if (Loader.isModLoaded("bloodmagic")) {
+                theOneProbeImp.registerProvider(new ModularMachineryBloodMagicInfoProvider());
+            }
+        }
+        if (Loader.isModLoaded("gugu-utils") && Loader.isModLoaded("modularmachinery")) {
+            if (Loader.isModLoaded("botania")) {
+                theOneProbeImp.registerProvider(new GuguUtilsManaInfoProvider());
+            }
+            if (Loader.isModLoaded("astralsorcery")) {
+                theOneProbeImp.registerProvider(new GuguUtilsInfoProvider());
+            }
+            if (Loader.isModLoaded("naturesaura")) {
+                theOneProbeImp.registerProvider(new GuguUtilsAuraInfoProvider());
+            }
+        }
         if (Loader.isModLoaded("thaumcraft")) {
             AspectElement.setElementId(theOneProbeImp.registerElementFactory(new AspectElement.Factory()));
             theOneProbeImp.registerProvider(new ThaumHighlightInfoProvider());
             theOneProbeImp.registerProvider(new Smelter());
+            if (Loader.isModLoaded("modularmachinery")) {
+                theOneProbeImp.registerProvider(new ModularMachineryAspectInfoProvider());
+            }
         }
     }
 }
