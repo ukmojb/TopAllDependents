@@ -14,10 +14,11 @@ import mcjty.theoneprobe.api.ProbeMode;
 import mcjty.theoneprobe.api.TextStyleClass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 import java.util.List;
-import java.util.StringJoiner;
 
 public class ModularMachineryInfoProvider implements IProbeInfoProvider {
 
@@ -35,11 +36,7 @@ public class ModularMachineryInfoProvider implements IProbeInfoProvider {
         } else if (tile instanceof TileStarlightOutput) {
             TileStarlightOutput starlightOutput = (TileStarlightOutput) tile;
             addValue(probeInfo, "starlight", Float.toString(starlightOutput.getStarlightProduced()));
-            IConstellation constellation = starlightOutput.constellation;
-            String name = constellation == null
-                    ? Tools.translate("topaddons.magic:none").getFormattedText()
-                    : Tools.translate(constellation.getUnlocalizedName()).getFormattedText();
-            addValue(probeInfo, "constellation", name);
+            addValue(probeInfo, "constellation", ConstellationText.translate(starlightOutput.constellation));
         } else if (tile instanceof TileConstellationProvider) {
             ConstellationSkyHandler constellationSkyHandler = ConstellationSkyHandler.getInstance();
             WorldSkyHandler skyHandler = constellationSkyHandler == null
@@ -49,24 +46,27 @@ public class ModularMachineryInfoProvider implements IProbeInfoProvider {
                     ? null
                     : skyHandler.getSortedActiveConstellations();
             if (constellations == null || constellations.isEmpty()) {
-                addValue(probeInfo, "active_constellations", Tools.translate("topaddons.magic:none").getFormattedText());
+                addValue(probeInfo, "active_constellations", Tools.translate("top.magic.none"));
             } else {
-                StringJoiner names = new StringJoiner(", ");
+                ITextComponent names = new TextComponentString("");
                 for (IConstellation constellation : constellations) {
-                    if (constellation != null && constellation.getUnlocalizedName() != null) {
-                        names.add(Tools.translate(constellation.getUnlocalizedName()).getFormattedText());
+                    if (constellation != null) {
+                        if (!names.getSiblings().isEmpty()) {
+                            names.appendText(", ");
+                        }
+                        names.appendSibling(ConstellationText.translate(constellation));
                     }
                 }
-                String activeConstellations = names.length() == 0
-                        ? Tools.translate("topaddons.magic:none").getFormattedText()
-                        : names.toString();
+                ITextComponent activeConstellations = names.getSiblings().isEmpty()
+                        ? Tools.translate("top.magic.none")
+                        : names;
                 addValue(probeInfo, "active_constellations", activeConstellations);
             }
         }
     }
 
-    private void addValue(IProbeInfo probeInfo, String key, String value) {
-        String label = Tools.translate("topaddons.magic:" + key).getFormattedText();
-        probeInfo.text(TextStyleClass.LABEL + label + ": " + TextStyleClass.INFO + value);
+    private void addValue(IProbeInfo probeInfo, String key, Object value) {
+        probeInfo.text(Tools.text(TextStyleClass.LABEL, Tools.translate("top.magic." + key),
+                ": ", TextStyleClass.INFO, value));
     }
 }

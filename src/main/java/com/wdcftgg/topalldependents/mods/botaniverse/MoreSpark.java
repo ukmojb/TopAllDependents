@@ -1,17 +1,11 @@
 package com.wdcftgg.topalldependents.mods.botaniverse;
 
-/**
- * Created by IntelliJ IDEA.
- *
- * @Author : wdcftgg
- * @create 2023/12/16 19:58
- */
-
 import com.aeternal.botaniverse.Config;
 import com.aeternal.botaniverse.common.entity.sparks.EntitySparkAlfheim;
 import com.aeternal.botaniverse.common.entity.sparks.EntitySparkAsgard;
 import com.aeternal.botaniverse.common.entity.sparks.EntitySparkMuspelheim;
 import com.aeternal.botaniverse.common.entity.sparks.EntitySparkNilfheim;
+import mcjty.theoneprobe.Tools;
 import mcjty.theoneprobe.api.IProbeHitEntityData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoEntityProvider;
@@ -21,12 +15,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import vazkii.botania.api.mana.spark.ISparkEntity;
 
-/**
- * Created by IntelliJ IDEA.
- *
- * @Author : wdcftgg
- * @create 2023/12/16 18:53
- */
 public class MoreSpark implements IProbeInfoEntityProvider {
 
     @Override
@@ -48,7 +36,7 @@ public class MoreSpark implements IProbeInfoEntityProvider {
             if (sparkEntity instanceof EntitySparkNilfheim) speed = Config.SparkNilfheimConductivity;
 
             if(speed != -1) {
-                probeInfo.text(speed + "Mana/s");
+                probeInfo.text(Tools.translate("top.magic.mana", speed + "/s"));
             }
 
         }

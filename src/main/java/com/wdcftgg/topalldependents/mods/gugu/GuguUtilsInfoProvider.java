@@ -2,7 +2,7 @@ package com.wdcftgg.topalldependents.mods.gugu;
 
 import com.warmthdawn.mod.gugu_utils.modularmachenary.starlight.BlockStarightInputHatch;
 import com.warmthdawn.mod.gugu_utils.modularmachenary.starlight.TileStarlightInputHatch;
-import hellfirepvp.astralsorcery.common.constellation.IConstellation;
+import com.wdcftgg.topalldependents.mods.modularmachinery.ConstellationText;
 import mcjty.theoneprobe.Tools;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
@@ -29,16 +29,12 @@ public class GuguUtilsInfoProvider implements IProbeInfoProvider {
             int capacity = world.getBlockState(data.getPos()).getValue(BlockStarightInputHatch.VARIANT).getStarlightMaxStorage();
             addValue(probeInfo, "starlight_storage", starlightInput.getStarlightStored() + " / " + capacity);
 
-            IConstellation constellation = starlightInput.getFocusedConstellation();
-            String name = constellation == null
-                    ? Tools.translate("topaddons.magic:none").getFormattedText()
-                    : Tools.translate(constellation.getUnlocalizedName()).getFormattedText();
-            addValue(probeInfo, "constellation", name);
+            addValue(probeInfo, "constellation", ConstellationText.translate(starlightInput.getFocusedConstellation()));
         }
     }
 
-    private void addValue(IProbeInfo probeInfo, String key, String value) {
-        String label = Tools.translate("topaddons.magic:" + key).getFormattedText();
-        probeInfo.text(TextStyleClass.LABEL + label + ": " + TextStyleClass.INFO + value);
+    private void addValue(IProbeInfo probeInfo, String key, Object value) {
+        probeInfo.text(Tools.text(TextStyleClass.LABEL, Tools.translate("top.magic." + key),
+                ": ", TextStyleClass.INFO, value));
     }
 }

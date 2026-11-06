@@ -22,9 +22,9 @@ public class ModularMachineryAuraInfoProvider implements IProbeInfoProvider {
     public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
         Object tile = world.getTileEntity(data.getPos());
         if (tile instanceof TileAuraProvider) {
-            String label = Tools.translate("topaddons.magic:aura").getFormattedText();
             int amount = ((TileAuraProvider) tile).getAura().getAmount();
-            probeInfo.text(TextStyleClass.LABEL + label + ": " + TextStyleClass.INFO + amount);
+            probeInfo.text(Tools.text(TextStyleClass.LABEL, Tools.translate("top.magic.aura"),
+                    ": ", TextStyleClass.INFO, amount));
         }
     }
 }

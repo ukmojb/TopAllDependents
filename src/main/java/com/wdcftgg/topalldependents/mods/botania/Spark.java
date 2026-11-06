@@ -1,5 +1,6 @@
 package com.wdcftgg.topalldependents.mods.botania;
 
+import mcjty.theoneprobe.Tools;
 import mcjty.theoneprobe.api.IProbeHitEntityData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoEntityProvider;
@@ -10,12 +11,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import vazkii.botania.common.entity.EntitySpark;
 
-/**
- * Created by IntelliJ IDEA.
- *
- * @Author : wdcftgg
- * @create 2023/12/16 18:53
- */
 public class Spark implements IProbeInfoEntityProvider {
 
     @Override
@@ -28,7 +23,7 @@ public class Spark implements IProbeInfoEntityProvider {
     public void addProbeEntityInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, Entity entity, IProbeHitEntityData data) {
         if (entity instanceof EntitySpark) {
             EntitySpark sparkEntity = (EntitySpark) entity;
-            probeInfo.text(20000 + "Mana/s");
+            probeInfo.text(Tools.translate("top.magic.mana", 20000 + "/s"));
 
             if (player.isSneaking()) {
                 String upgradename = "null";

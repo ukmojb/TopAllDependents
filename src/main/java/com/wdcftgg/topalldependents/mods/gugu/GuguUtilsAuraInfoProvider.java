@@ -26,8 +26,8 @@ public class GuguUtilsAuraInfoProvider implements IProbeInfoProvider {
         if (tile instanceof TileAuraHatch) {
             IAuraContainer container = ((TileAuraHatch) tile).getCapability(NaturesAuraAPI.capAuraContainer, null);
             if (container != null) {
-                String label = Tools.translate("topaddons.magic:aura_storage").getFormattedText();
-                probeInfo.text(TextStyleClass.LABEL + label + ": " + TextStyleClass.INFO + container.getStoredAura() + " / " + container.getMaxAura());
+                probeInfo.text(Tools.text(TextStyleClass.LABEL, Tools.translate("top.magic.aura_storage"),
+                        ": ", TextStyleClass.INFO, container.getStoredAura(), " / ", container.getMaxAura()));
             }
         }
     }

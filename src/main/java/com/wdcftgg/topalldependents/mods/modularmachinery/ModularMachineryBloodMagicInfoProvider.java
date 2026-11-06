@@ -49,7 +49,7 @@ public class ModularMachineryBloodMagicInfoProvider implements IProbeInfoProvide
     }
 
     private void addValue(IProbeInfo probeInfo, String key, String value) {
-        probeInfo.text(Tools.text(TextStyleClass.LABEL, Tools.translate("topaddons.magic:" + key),
+        probeInfo.text(Tools.text(TextStyleClass.LABEL, Tools.translate("top.magic." + key),
                 ": ", TextStyleClass.INFO, value));
     }
 }

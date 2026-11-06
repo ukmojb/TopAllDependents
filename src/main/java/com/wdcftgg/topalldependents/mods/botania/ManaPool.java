@@ -2,6 +2,7 @@ package com.wdcftgg.topalldependents.mods.botania;
 
 
 import com.wdcftgg.topalldependents.config.Config;
+import mcjty.theoneprobe.Tools;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoProvider;
@@ -38,12 +39,12 @@ public class ManaPool implements IProbeInfoProvider {
                     .filledColor(manaColor)
                     .alternateFilledColor(manaColor);
             if (Config.textinprogress) {
-                style.prefix("Mana:" + mana).suffix("/" + capacity);
+                style.prefix(Tools.translate("top.magic.mana", mana)).suffix("/" + capacity);
             }
             probeInfo.progress(mana, capacity, style);
         }
         if (!Config.showBotaniaprogress || !Config.textinprogress) {
-            probeInfo.text("Mana:" + mana + "/" + capacity);
+            probeInfo.text(Tools.translate("top.magic.mana", mana + "/" + capacity));
         }
     }
 
